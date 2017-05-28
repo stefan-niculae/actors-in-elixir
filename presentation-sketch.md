@@ -1028,7 +1028,7 @@ end
 
 > Patterns.foo({:a, 42}) # Perehce, primul element a, al doilea 42
 > Patterns.foo("eroare") # nu face match, eroare
->  Patterns.foo({:a, 42, "yahoo"}) # Triplet: a, 42, yahoo
+> Patterns.foo({:a, 42, "yahoo"}) # Triplet: a, 42, yahoo
 ```
 
 #### OTP
