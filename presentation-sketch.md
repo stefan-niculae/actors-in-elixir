@@ -1014,7 +1014,7 @@ In programarea cu actori, imbratisam filosofia "let it crash", lasand supervizor
 Scalare la mai multe masini si programare distribuita (trimiterea mesajelor de la un actor către un alt dispozitiv). 
 
 Funcţii şi Patern Matching
-
+```elixir
     defmodule Patterns do
       def foo({x, y}) do
         IO.puts("Pereche, primul element #{x}, al doilea #{y}")
@@ -1024,13 +1024,13 @@ Funcţii şi Patern Matching
         IO.puts("Triplet: #{x}, #{y}, #{z}")
       end
     end
-    
+ ```   
     > Patterns.foo({:a, 42}) # Perehce, primul element a, al doilea 42
     > Patterns.foo("eroare") # nu face match, eroare
     >  Patterns.foo({:a, 42, "yahoo"}) # Triplet: a, 42, yahoo
 
 OTP
-
+```elixir
     defmodule Cache do
       use GenServer.Behaviour
       #####
@@ -1081,7 +1081,7 @@ OTP
         supervise(workers, strategy: :one_for_one)
       end
     end
-
+```
 
 # Studiu de caz
 
