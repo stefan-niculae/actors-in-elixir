@@ -1,0 +1,10 @@
+Aceste exemple sunt scrise in Elixier
+
+Pentru a rula un script (cu extesia .exs):
+    elixir numefisier.exs
+
+Pentru a rula Interactive Elixir cu definitiile intr-un fisier incarcat:
+    iex numefisier.exs
+
+Pentru a rula Interactive Elixir pentru un proiect cu mix.exs in root:
+    iex -S mix
