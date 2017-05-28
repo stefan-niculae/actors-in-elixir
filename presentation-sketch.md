@@ -745,7 +745,7 @@ end
 ```elixir
 slow_double = fn(x) -> :timer.sleep(1000); x * 2 end
 > Enum.map     [1, 2, 3, 4], slow_double  # 4s
-> Parallel.map [1, 2, 3, 4], slow_doubl   # 1s
+> Parallel.map [1, 2, 3, 4], slow_double  # 1s
 ```
 
 
