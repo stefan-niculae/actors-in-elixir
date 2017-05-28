@@ -1013,74 +1013,77 @@ In programarea cu actori, imbratisam filosofia "let it crash", lasand supervizor
 
 Scalare la mai multe masini si programare distribuita (trimiterea mesajelor de la un actor către un alt dispozitiv). 
 
-Funcţii şi Patern Matching
-```elixir
-    defmodule Patterns do
-      def foo({x, y}) do
-        IO.puts("Pereche, primul element #{x}, al doilea #{y}")
-      end
-    
-      def foo({x, y, z}) do
-        IO.puts("Triplet: #{x}, #{y}, #{z}")
-      end
-    end
- ```   
-    > Patterns.foo({:a, 42}) # Perehce, primul element a, al doilea 42
-    > Patterns.foo("eroare") # nu face match, eroare
-    >  Patterns.foo({:a, 42, "yahoo"}) # Triplet: a, 42, yahoo
+#### Funcţii şi Patern Matching
 
-OTP
 ```elixir
-    defmodule Cache do
-      use GenServer.Behaviour
-      #####
-      # External API
-    
-      def start_link do
-        :gen_server.start_link({:local, :cache}, __MODULE__, {HashDict.new, 0}, [])
-      end
-    
-      def put(url, page) do
-        :gen_server.cast(:cache, {:put, url, page})
-      end
-    
-      def get(url) do
-        :gen_server.call(:cache, {:get, url})
-      end
-    
-      def size do
-        :gen_server.call(:cache, {:size})
-      end
-    
-      #####
-      # GenServer implementation
-    
-      def handle_cast({:put, url, page}, {pages, size}) do
-        new_pages = Dict.put(pages, url, page)
-        new_size = size + byte_size(page)
-        {:noreply, {new_pages, new_size}}
-      end
-      def handle_call({:get, url}, _from, {pages, size}) do
-        {:reply, pages[url], {pages, size}}
-      end
-    
-      def handle_call({:size}, _from, {pages, size}) do
-        {:reply, size, {pages, size}}
-      end
-    end
-    
-    defmodule CacheSupervisor do
-      use Supervisor.Behaviour
-    
-      def start_link do
-        :supervisor.start_link(__MODULE__, []) 
-      end
-    
-      def init(_args) do
-        workers = [worker(Cache, [])]
-        supervise(workers, strategy: :one_for_one)
-      end
-    end
+defmodule Patterns do
+  def foo({x, y}) do
+    IO.puts("Pereche, primul element #{x}, al doilea #{y}")
+  end
+
+  def foo({x, y, z}) do
+    IO.puts("Triplet: #{x}, #{y}, #{z}")
+  end
+end
+
+> Patterns.foo({:a, 42}) # Perehce, primul element a, al doilea 42
+> Patterns.foo("eroare") # nu face match, eroare
+>  Patterns.foo({:a, 42, "yahoo"}) # Triplet: a, 42, yahoo
+```
+
+#### OTP
+
+```elixir
+defmodule Cache do
+  use GenServer.Behaviour
+  #####
+  # External API
+
+  def start_link do
+    :gen_server.start_link({:local, :cache}, __MODULE__, {HashDict.new, 0}, [])
+  end
+
+  def put(url, page) do
+    :gen_server.cast(:cache, {:put, url, page})
+  end
+
+  def get(url) do
+    :gen_server.call(:cache, {:get, url})
+  end
+
+  def size do
+    :gen_server.call(:cache, {:size})
+  end
+
+  #####
+  # GenServer implementation
+
+  def handle_cast({:put, url, page}, {pages, size}) do
+    new_pages = Dict.put(pages, url, page)
+    new_size = size + byte_size(page)
+    {:noreply, {new_pages, new_size}}
+  end
+  def handle_call({:get, url}, _from, {pages, size}) do
+    {:reply, pages[url], {pages, size}}
+  end
+
+  def handle_call({:size}, _from, {pages, size}) do
+    {:reply, size, {pages, size}}
+  end
+end
+
+defmodule CacheSupervisor do
+  use Supervisor.Behaviour
+
+  def start_link do
+    :supervisor.start_link(__MODULE__, []) 
+  end
+
+  def init(_args) do
+    workers = [worker(Cache, [])]
+    supervise(workers, strategy: :one_for_one)
+  end
+end
 ```
 
 # Studiu de caz
