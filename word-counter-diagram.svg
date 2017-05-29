@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 793.33331 504.39786"
+   height="504.39786"
+   width="793.33331"
+   xml:space="preserve"
+   id="svg2"
+   version="1.1"><metadata
+     id="metadata8"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs6"><clipPath
+       id="clipPath14"
+       clipPathUnits="userSpaceOnUse"><path
+         id="path12"
+         d="M 0,0 H 595 V 842 H 0 Z" /></clipPath><clipPath
+       id="clipPath24"
+       clipPathUnits="userSpaceOnUse"><path
+         id="path22"
+         d="M 0,241.5389 H 595 V 600.4611 H 0 Z" /></clipPath><clipPath
+       id="clipPath146"
+       clipPathUnits="userSpaceOnUse"><path
+         id="path144"
+         d="M 1.802962,241.5389 H 594.99996 V 600.4611 H 1.802962 Z" /></clipPath><clipPath
+       id="clipPath262"
+       clipPathUnits="userSpaceOnUse"><path
+         id="path260"
+         d="M 0,241.5389 H 595 V 600.4611 H 0 Z" /></clipPath></defs><g
+     clip-path="url(#clipPath14)"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,815.41987)"
+     id="g10"><g
+       id="g16" /><g
+       id="g18"><g
+         clip-path="url(#clipPath24)"
+         id="g20"><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g26"><text
+             id="text30"
+             style="font-variant:normal;font-weight:600;font-size:12px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Semibold;writing-mode:lr-tb;fill:#28288c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,581.6)"><tspan
+               id="tspan28"
+               y="0"
+               x="0 8.1960001 11.268 16.271999 20.483999 24.756001 27.827999 34.848 41.675999 45.888 52.080002 59.051998 61.535999 71.963997 78.732002 83.003998 89.975998 92.459999 99.515999 106.284 113.112 119.976">Distributed Word Count</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g32"><text
+             id="text36"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,563.567)"><tspan
+               id="tspan34"
+               y="0"
+               x="0 9.3120003">We</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g38"><text
+             id="text42"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,104.356,563.567)"><tspan
+               id="tspan40"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g44"><text
+             id="text48"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,106.49,563.567)"><tspan
+               id="tspan46"
+               y="0"
+               x="0 4.2680001 9.3120003 12.21812 17.45612 22.888121 25.79812 32.200119 37.438122 40.344238 44.030239 49.462238 52.368359 55.472359 58.382359 64.784363 67.694359 72.738358 79.140358 82.046478 87.478477 90.582481 93.686478 96.592598 102.0246 108.6206 112.8886 115.79472 121.80872 124.71872 129.76273 134.80672 141.40273 146.44672 151.49072 154.40073 159.83272 166.23473 169.14084 174.57285 177.67683 180.58296 186.20895 191.25296 194.93896 200.37096 204.63896 209.68295 212.58908 218.21507 224.61708 230.63107 233.5372 240.52119 243.4312 246.3412 251.77319 254.6832 258.9512 261.85733 267.87131 273.10931 276.01544 281.05945 285.32745 290.37143 295.99744 299.68344 302.59344 308.99545 314.23343 317.13956 322.76556 325.67169 331.68567 334.59567 339.63968">re going to finish off our discussion of actors and Elixir by creating a dis-</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g50"><text
+             id="text54"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,549.987)"><tspan
+               id="tspan52"
+               y="0"
+               x="0 3.6860001 7.954 10.864 16.878 23.474001 27.16 32.203999 38.217999 40.986382 46.03038 51.074379 55.342381 60.386379 63.296379 68.728378 75.130379 77.898758 83.330757 86.434761 89.20314 92.889137 99.291138 104.33514 107.10352 116.41552 119.32552 125.33952 128.24953 134.26352 139.30753 145.32152 148.23152 153.85751 156.6259 164.19189 169.6239 173.89191 179.9059 183.7859 188.8299 194.2619 200.85789 207.2599 210.94591 213.71428 218.75829 224.19028 229.81628 238.93428 244.94827 247.85828 252.90228 255.67065 263.23666">tributed version of the Wikipedia word-count example we</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g56"><text
+             id="text60"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,358.278,549.987)"><tspan
+               id="tspan58"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g62"><text
+             id="text66"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,360.412,549.987)"><tspan
+               id="tspan64"
+               y="0"
+               x="0 5.0440001 10.088 12.85638 17.900379 22.94438 27.98838 34.390381 37.15876 40.06876 46.47076 49.23914 55.253139 59.521141 64.56514 69.609138 72.519142 77.951141 84.547142">ve seen in previous</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g68"><text
+             id="text72"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,536.407)"><tspan
+               id="tspan70"
+               y="0"
+               x="0 5.0440001 11.446 17.072001 23.086 26.771999 31.816 36.084 41.127998 44.231998 47.6367 53.456699 56.366699 62.380699 67.424698 70.829399 74.515404 80.917397 85.961403 89.366096 94.410103 99.842102 102.7521 109.3481 113.0341 115.9441 121.3761 127.7781 132.8221 136.22681 143.7928">chapters. Like the solutions we</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g74"><text
+             id="text78"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,238.838,536.407)"><tspan
+               id="tspan76"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g80"><text
+             id="text84"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,240.972,536.407)"><tspan
+               id="tspan82"
+               y="0"
+               x="0 5.0440001 10.088 13.4927 19.1187 22.0287 26.2967 31.3407 36.966702 42.980701 48.2187 51.623402 56.6674 61.711399 66.755402 73.157402 76.261398 79.6661 83.352097 89.754097 92.664101 97.708099 101.1128 108.6788 111.5888 114.4988 117.4088 120.8135 126.8275 131.87151 135.2762 140.90221 146.9162 149.8262 154.87019 158.2749 161.96091 167.3929 170.79761 173.7076 178.7516 183.79559 188.8396 193.1076 198.7336 203.9716">ve already seen, this will be able to leverage</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g86"><text
+             id="text90"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,522.827)"><tspan
+               id="tspan88"
+               y="0"
+               x="0 9.118 15.714 18.624001 22.309999 25.219999 31.233999 34.144001 39.188 42.79446 47.838459 53.270458 57.53846 62.582458 67.626457 70.730461 74.336922 81.902924 88.304916 91.21492 94.124924 100.13892 105.18292 108.78938 112.47538 118.87738 124.30938 129.35338 134.39738 138.00385 145.56984">multiple cores. Unlike those we</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g92"><text
+             id="text96"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,240.612,522.827)"><tspan
+               id="tspan94"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g98"><text
+             id="text102"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,242.746,522.827)"><tspan
+               id="tspan100"
+               y="0"
+               x="0 5.0440001 10.088 13.69446 19.320459 22.230459 26.498461 31.542459 37.168461 43.182461 48.42046 52.02692 57.070919 62.114922 67.15892 73.560921 76.664917 80.271378 83.181381 86.867378 90.473839 98.039841 100.94984 103.85984 106.76984 110.3763 116.0023 118.9123 123.9563 129.38831 132.99477 139.00876 144.05276 147.65923 153.28522 159.29922 162.20921 167.25322 170.85968 174.54568 179.97768 183.58414 188.62814 193.67213 199.29814 202.20815">ve already seen, it will also be able to scale</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g104"><text
+             id="text108"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,509.247)"><tspan
+               id="tspan106"
+               y="0"
+               x="0 6.0139999 11.058 16.296 21.728001 28.129999 34.144001 37.248001 42.874001 45.978001 51.021999 53.931999 60.334 65.571999 68.482002 73.526001 76.629997 85.748001 91.374001 96.417999 102.82 105.73 112.132 117.176 120.28 125.906 132.308 138.32201 141.42599 145.694 150.73801 155.782 161.214 166.258 171.302 175.57001 178.674 181.778 186.04601 191.478 200.59599 203.7 206.804 212.42999 215.34 218.25 224.84599 229.114 234.158 239.202">beyond a single machine and recover from failures.</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g110"><text
+             id="text114"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,489.667)"><tspan
+               id="tspan112"
+               y="0"
+               x="0 7.7600002 12.804 17.072001">Here</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g116"><text
+             id="text120"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,112.116,489.667)"><tspan
+               id="tspan118"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g122"><text
+             id="text126"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,114.25,489.667)"><tspan
+               id="tspan124"
+               y="0"
+               x="0 5.0440001 8.1479998 13.774 16.878 22.892 25.802 31.427999 36.666 40.933998 46.560001 55.678001 58.782001 64.213997 67.318001 70.421997 74.108002 80.510002 85.554001 88.657997 94.283997 98.552002 103.596 109.998 112.908 116.594 121.638 126.682 130.368 136.964 141.23199 146.276 149.38 156.946">s a diagram of the architecture we</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g128"><text
+             id="text132"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,276.24,489.667)"><tspan
+               id="tspan130"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g134"><text
+             id="text138"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,278.374,489.667)"><tspan
+               id="tspan136"
+               y="0"
+               x="0 4.2680001 9.3120003 12.416 18.042 20.952 30.07 32.98 39.382 44.619999 47.723999 50.827999 56.259998 60.528">re aiming for:</tspan></text>
+</g></g></g><g
+       id="g140"><g
+         clip-path="url(#clipPath146)"
+         id="g142"><path
+           id="path148"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="M 1.802962,237.8635 H 596.59966 V 606.788 H 1.802962 Z" /><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g150"><path
+             id="path152"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 160.5,36.5 h 66 v 36 h -66 z" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g154"><text
+             id="text158"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,175.2119,51)"><tspan
+               id="tspan156"
+               y="0"
+               x="0 5.8000002 11.29 16.799999 22.35 25.66 30.67">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g160"><path
+             id="path162"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 151.5,45.5 h 66 v 36 h -66 z" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g164"><text
+             id="text168"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,166.2119,60)"><tspan
+               id="tspan166"
+               y="0"
+               x="0 5.8000002 11.29 16.799999 22.35 25.66 30.67">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g170"><path
+             id="path172"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 27.5,99.5 h 66 v 36 h -66 z" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g174"><text
+             id="text178"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,45.2734,114)"><tspan
+               id="tspan176"
+               y="0"
+               x="0 5.3200002 10.14 13.41 17.370001 22.379999">Parser</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g180"><path
+             id="path182"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 27.5,10.5 h 66 v 36 h -66 z" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g184"><text
+             id="text188"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,32.2119,25)"><tspan
+               id="tspan186"
+               y="0"
+               x="0 6.1199999 10.6 15.08 20.59 28.93 34.439999 36.799999 41.619999 44.93 50.419998">Accumulator</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g190"><path
+             id="path192"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 142.5,54.5 h 66 v 36 h -66 z" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g194"><text
+             id="text198"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,157.2119,69)"><tspan
+               id="tspan196"
+               y="0"
+               x="0 5.8000002 11.29 16.799999 22.35 25.66 30.67">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,377.4552,465.716)"
+           id="g200"><path
+             id="path202"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 0,0 c -7.394,5.236 -12.9,12.176 -22.181,15.711 -6.652,2.534 -15.245,3.32 -23.692,4.237" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,242.4268,518.3422)"
+           id="g204"><path
+             id="path206"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 0,0 7.934,-1.022 M 7.551,-3.998 0,0 8.318,1.953" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,333.565,437.5064)"
+           id="g208"><path
+             id="path210"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 0,0 c -7.239,0.801 -14.509,1.555 -20.692,3.951 -9.015,3.494 -15.724,10.483 -23.584,15.723" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,353.4684,434.8852)"
+           id="g212"><path
+             id="path214"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 0,0 -7.932,1.044 M -7.539,4.019 0,0 -8.322,-1.93" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g216"><text
+             id="text220"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,127.9189,110)"><tspan
+               id="tspan218"
+               y="0"
+               x="0 3.27 8.2799997 13.91 19.42 24.43 28.389999 31.700001 36.700001 42.389999 47.209999 52.799999">request_page</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g222"><text
+             id="text226"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,86.8789,73.5)"><tspan
+               id="tspan224"
+               y="0"
+               x="0 5.6900001 10.51 16.1">page</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,358.2624,387.6802)"
+           id="g228"><path
+             id="path230"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 0,0 -38.82,-14.853" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,242.085,343.2288)"
+           id="g232"><path
+             id="path234"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 0,0 7.472,2.859 M 8.543,0.058 0,0 6.399,5.661" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g236"><text
+             id="text240"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,117.2686,40)"><tspan
+               id="tspan238"
+               y="0"
+               x="0 4.48 9.9700003 15.48 21.030001 24.34">counts</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,153.6393,355.8189)"
+           id="g242"><path
+             id="path244"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="M 0,0 V 42.1" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,153.6393,481.5547)"
+           id="g246"><path
+             id="path248"
+             style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             d="m 0,0 v -8 m -3,0 3,8 3,-8" /></g><g
+           transform="matrix(2.509691,0,0,2.509691,1.802962,237.8635)"
+           id="g250"><text
+             id="text254"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,9.9312,69)"><tspan
+               id="tspan252"
+               y="0"
+               x="0 5.6900001 8.96 14.45 18.93 23.940001 27.9 31.860001 36.869999">processed</tspan></text>
+</g></g></g><g
+       id="g256"><g
+         clip-path="url(#clipPath262)"
+         id="g258"><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g264"><text
+             id="text268"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,317.087)"><tspan
+               id="tspan266"
+               y="0"
+               x="0 7.7600002 14.356 18.624001 21.406931 26.45093 31.882931 34.792931 41.388931 45.074928 47.984928 53.416931 59.818932 62.60186 65.511864 70.555862 73.338791 79.352791 82.262787 87.306793 90.216789 96.230789 101.27479 107.28879 110.07172 112.98172 119.38372 123.06972 128.50172 131.28465 134.97066 141.37265 145.64066 150.68465 155.72865 158.51158 162.19759 167.43558 173.44958 178.49358 183.53758 186.32051 191.7525 194.85651 197.63943 203.26544 208.30943 211.99544 217.42744 221.69543 226.73944 229.84344 232.62637 238.05836 244.46037 249.50436">Our solution is divided into three types of actors: one </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g270"><text
+             id="text274"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,342.288,317.087)"><tspan
+               id="tspan272"
+               y="0"
+               x="0">P</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g276"><text
+             id="text280"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,346.281,317.087)"><tspan
+               id="tspan278"
+               y="0"
+               x="0 5.3497438 8.9386473 13.486977 18.857674">arser</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g282"><text
+             id="text286"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,364.963,317.087)"><tspan
+               id="tspan284"
+               y="0"
+               x="0 3.1040001 5.88693 15.00493 21.600929 24.510929 28.19693 31.10693 37.12093 40.03093 45.074928">, multiple </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g288"><text
+             id="text292"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,412.821,317.087)"><tspan
+               id="tspan290"
+               y="0"
+               x="0 6.0952859 11.439792 16.976358 22.512924 25.936831 31.307526">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g294"><text
+             id="text298"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,441.858,317.087)"><tspan
+               id="tspan296"
+               y="0"
+               x="0 5.0440001">s,</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g300"><text
+             id="text304"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,303.507)"><tspan
+               id="tspan302"
+               y="0"
+               x="0 5.6259999 12.028 18.042 22.177111 27.60911 34.011108 39.055111">and one </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g306"><text
+             id="text310"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,133.19,303.507)"><tspan
+               id="tspan308"
+               y="0"
+               x="0">A</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g312"><text
+             id="text316"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,138.011,303.507)"><tspan
+               id="tspan314"
+               y="0"
+               x="0 4.7997541 9.5995083 15.132582 23.633856 29.166929 31.592125 36.941868 40.362282 45.703297">ccumulator</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g318"><text
+             id="text322"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,179.033,303.507)"><tspan
+               id="tspan320"
+               y="0"
+               x="0 3.1040001 7.23911 13.25311 19.655109 24.69911">. The </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g324"><text
+             id="text328"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,207.867,303.507)"><tspan
+               id="tspan326"
+               y="0"
+               x="0">P</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g330"><text
+             id="text334"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,211.86,303.507)"><tspan
+               id="tspan332"
+               y="0"
+               x="0 5.3497438 8.9386473 13.486977 18.857674">arser</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g336"><text
+             id="text340"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,234.67711,303.507)"><tspan
+               id="tspan338"
+               y="0"
+               x="0 2.9100001 7.954 12.08911 16.357109 21.40111 26.44511 32.45911 37.891109 44.29311 49.337109 52.247108 58.261108 61.171108 66.215111 70.35022 73.454224 78.886223 83.154221 87.28933 93.303329 98.929329 103.19733 108.24133 111.15133 117.55333 122.79133 126.92644 132.55244 136.68755 145.99956 148.90955 154.92355 157.83356 163.84755 168.89156 174.90555 177.81555 183.44154 187.57666 193.59065 200.18666 209.30466">is responsible for parsing a Wikipedia dump</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g342"><text
+             id="text346"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,289.927)"><tspan
+               id="tspan344"
+               y="0"
+               x="0 2.9100001 9.3120003 12.998 18.43 21.264339 27.278339 32.904339 38.142342 43.18634 48.230339 51.334339">into pages, </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g348"><text
+             id="text352"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,144.168,289.927)"><tspan
+               id="tspan350"
+               y="0"
+               x="0 6.0952859 11.439792 16.976358 22.512924 25.936831 31.307526">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g354"><text
+             id="text358"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,173.205,289.927)"><tspan
+               id="tspan356"
+               y="0"
+               x="0 5.0440001 7.8783398 12.92234 18.35434 24.95034 31.352341 35.038342 37.872681 45.438679 50.870682 55.13868 61.152679 66.196678 69.031021 76.597023 79.507019 83.193024 89.595016 92.50502 98.907021 101.74136 107.75536 113.38136 118.61936 123.66336 128.70737 131.81136 134.64571 140.2717 146.67371 152.6877 155.52203 159.20804 165.61005 170.65404">s count words within pages, and the </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g360"><text
+             id="text364"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,346.691,289.927)"><tspan
+               id="tspan362"
+               y="0"
+               x="0">A</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g366"><text
+             id="text370"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,351.512,289.927)"><tspan
+               id="tspan368"
+               y="0"
+               x="0 4.7997541 9.5995083 15.132582 23.633856 29.166929 31.592125 36.941868 40.362282 45.703297">ccumulator</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g372"><text
+             id="text376"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,395.36834,289.927)"><tspan
+               id="tspan374"
+               y="0"
+               x="0 6.0139999 11.058 16.101999 22.115999 27.16 29.994341 33.68034 37.948341 43.574341 48.61834">keeps track</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g378"><text
+             id="text382"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,276.347)"><tspan
+               id="tspan380"
+               y="0"
+               x="0 5.4320002 8.5360003 11.64 15.326 20.757999 24.444 30.07 32.98 36.084 43.650002 49.082001 53.349998 59.363998 62.467999 67.512001 72.944 79.540001 85.942001 89.627998 94.671997 97.776001 103.402 108.446 112.714 118.146 123.19 128.23399 131.338 137.35201 142.978 148.216 153.25999 158.304">of total word counts across pages.</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g384"><text
+             id="text388"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,256.767)"><tspan
+               id="tspan386"
+               y="0"
+               x="0 6.0139999 10.282 15.714 20.757999 25.802 30.846001 35.889999 38.799999 45.202 50.439999 53.947521 56.857521 61.90152 65.409042 71.423042 74.333038 79.377037 85.391037 90.435043 96.449043 99.956558 105.38856 108.49256 111.59656 115.10408 121.11808 126.35608 129.8636 135.48959">Processing is kicked off by a </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g390"><text
+             id="text394"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,229,256.767)"><tspan
+               id="tspan392"
+               y="0"
+               x="0 6.0952859 11.439792 16.976358 22.512924 25.936831 31.307526">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g396"><text
+             id="text400"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,261.54452,256.767)"><tspan
+               id="tspan398"
+               y="0"
+               x="0 4.2680001 9.3120003 14.938 21.534 26.577999 31.622 35.307999 38.217999 44.619999 49.858002 53.36552 58.99152 62.499039 68.513039 74.139038 79.377037 84.421043 87.928558 91.032562 95.30056 100.73256 109.85056 113.35808 117.04408 123.44608 128.49008">requesting a page from the </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g402"><text
+             id="text406"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,393.545,256.767)"><tspan
+               id="tspan404"
+               y="0"
+               x="0">P</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g408"><text
+             id="text412"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,397.538,256.767)"><tspan
+               id="tspan410"
+               y="0"
+               x="0 5.3497438 8.9386473 13.486977 18.857674">arser</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g414"><text
+             id="text418"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,416.22,256.767)"><tspan
+               id="tspan416"
+               y="0"
+               x="0 3.1040001 6.6115198 15.92352 22.32552 27.36952">. When</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g420"><text
+             id="text424"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,243.187)"><tspan
+               id="tspan422"
+               y="0"
+               x="0 3.6860001 10.088 15.132">the </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g426"><text
+             id="text430"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,107.962,243.187)"><tspan
+               id="tspan428"
+               y="0"
+               x="0 6.0952859 11.439792 16.976358 22.512924 25.936831 31.307526">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g432"><text
+             id="text436"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,139.82946,243.187)"><tspan
+               id="tspan434"
+               y="0"
+               x="0 4.2680001 9.3120003 14.356 19.4 22.309999 27.354 32.397999 37.442001 40.272461 43.958462 50.360458 55.404461 58.234921 64.248917 69.874924 75.112923 80.156921 83.260918 86.091377 89.001381 92.687378 95.517838 100.56184 105.99384 112.58984 118.99184 122.67784 127.72184 130.55231 134.2383 140.6403 145.6843 148.51476 156.08076 161.51276 165.78076 171.79475 176.83876 179.66922 184.71323 190.14522 196.54723 200.23322 205.85922 208.76923 215.17122 220.21523 226.22922 229.05968 236.62569 239.53568 243.22168 249.62367 252.53368 258.93567 261.76614 267.39215 273.79413 279.80814 282.63861 287.68259 292.72659 299.1286 305.14261">receives the page, it counts the words contained within and sends</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g438"><text
+             id="text442"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,229.607)"><tspan
+               id="tspan440"
+               y="0"
+               x="0 3.6860001 10.088 15.132 24.25 28.56941 32.255409 37.687408 42.006821 45.692822 52.094818 57.138821">them to the </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g444"><text
+             id="text448"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,151.457,229.607)"><tspan
+               id="tspan446"
+               y="0"
+               x="0">A</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g450"><text
+             id="text454"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,156.278,229.607)"><tspan
+               id="tspan452"
+               y="0"
+               x="0 4.7997541 9.5995083 15.132582 23.633856 29.166929 31.592125 36.941868 40.362282 45.703297">ccumulator</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g456"><text
+             id="text460"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,197.3,229.607)"><tspan
+               id="tspan458"
+               y="0"
+               x="0 3.1040001 7.4234099 13.63141 16.54141 22.943411 28.56941 31.47941 34.389408 39.627411 42.731411 47.050819 50.73682 57.138821 62.182819">. Finally, the </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g462"><text
+             id="text466"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,263.801,229.607)"><tspan
+               id="tspan464"
+               y="0"
+               x="0">A</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g468"><text
+             id="text472"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,268.622,229.607)"><tspan
+               id="tspan470"
+               y="0"
+               x="0 4.7997541 9.5995083 15.132582 23.633856 29.166929 31.592125 36.941868 40.362282 45.703297">ccumulator</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g474"><text
+             id="text478"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,313.96341,229.607)"><tspan
+               id="tspan476"
+               y="0"
+               x="0 2.9100001 7.954 11.64 16.684 21.00341 24.689409 31.09141 36.13541">lets the </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g480"><text
+             id="text484"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,354.417,229.607)"><tspan
+               id="tspan482"
+               y="0"
+               x="0">P</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g486"><text
+             id="text490"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,358.41,229.607)"><tspan
+               id="tspan488"
+               y="0"
+               x="0 5.3497438 8.9386473 13.486977 18.857674">arser</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g492"><text
+             id="text496"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,381.41141,229.607)"><tspan
+               id="tspan494"
+               y="0"
+               x="0 6.0139999 12.416 17.848 25.414 29.73341 33.419411 39.821411 45.447411 49.133411 53.45282 57.138821 63.540821">know that the</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g498"><text
+             id="text502"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,216.027)"><tspan
+               id="tspan500"
+               y="0"
+               x="0 6.0139999 11.64 16.878 21.922001 25.025999 31.427999 37.054001 42.098 45.202 51.216 56.259998 61.304001 67.706001 70.809998 76.823997 81.092003 86.524002 91.568001 96.612 101.656 106.7 111.744 117.758">page has been processed.</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g504"><text
+             id="text508"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,196.447)"><tspan
+               id="tspan506"
+               y="0"
+               x="0 9.3120003">We</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g510"><text
+             id="text514"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,104.356,196.447)"><tspan
+               id="tspan512"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g516"><text
+             id="text520"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,106.49,196.447)"><tspan
+               id="tspan518"
+               y="0"
+               x="0 2.9100001 5.8200002 9.2702904 15.28429 18.19429 23.238291 28.28229 34.878288 39.922291 44.96629 48.41658 55.982578 62.384579 67.622581 71.072868 78.63887 83.682869 87.133163 92.177162 98.579163 104.01116 109.05516 114.09916 117.54945 121.23545 127.63745 130.54745 135.59145 139.04173 145.05574 150.68175 154.94974 158.63574 161.54575 166.58974 173.18575 176.09573 181.72174 185.98975 189.44003 195.06602 199.33403 203.60204 209.22803 215.63004 220.86803 225.91203 235.03003 240.07404 246.47603 250.16203 253.61232 258.65631 264.08832 269.52032 275.92233 279.02631 282.47662 288.4906 295.08661 298.77261 302.2229 305.3269 308.23691 312.50491 317.54889 321.23489 324.68518 327.59518 332.63919">ll discuss why we chose this particular arrangement soon, but first let</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g522"><text
+             id="text526"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,442.812,196.447)"><tspan
+               id="tspan524"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g528"><text
+             id="text532"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,444.946,196.447)"><tspan
+               id="tspan530"
+               y="0"
+               x="0">s</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g534"><text
+             id="text538"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,182.867)"><tspan
+               id="tspan536"
+               y="0"
+               x="0 5.0440001 10.088 15.132 18.236 24.638 30.07 37.636002 40.740002 43.650002">see how it</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g540"><text
+             id="text544"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,137.336,182.867)"><tspan
+               id="tspan542"
+               y="0"
+               x="0">’</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g546"><text
+             id="text550"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,139.47,182.867)"><tspan
+               id="tspan548"
+               y="0"
+               x="0 5.0440001 8.1479998 11.058 20.176001 26.190001 29.1 34.144001 43.262001 48.306 54.708 58.394001 63.438 69.452003 72.556 75.660004 80.704002 84.389999 90.015999 94.283997 97.970001 100.88 107.282 112.52 115.624 123.19 126.1 129.786 136.188">s implemented, starting with </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g552"><text
+             id="text556"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,278.762,182.867)"><tspan
+               id="tspan554"
+               y="0"
+               x="0 6.0952859 11.439792 16.976358 22.512924 25.936831 31.307526">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g558"><text
+             id="text562"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,307.799,182.867)"><tspan
+               id="tspan560"
+               y="0"
+               x="0">.</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g564"><text
+             id="text568"
+             style="font-variant:normal;font-weight:600;font-size:10px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Semibold;writing-mode:lr-tb;fill:#28288c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,159.42)"><tspan
+               id="tspan566"
+               y="0"
+               x="0 5.8800001 11.52 17.209999 22.93 26.440001 29 34.720001 40.450001 42.52 51.209999 56.849998 60.41 66.220001">Counting Words</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g570"><text
+             id="text574"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,143.287)"><tspan
+               id="tspan572"
+               y="0"
+               x="0 7.7600002 14.356 18.624001">Our </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g576"><text
+             id="text580"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,112.251,143.287)"><tspan
+               id="tspan578"
+               y="0"
+               x="0 6.0952859 11.439792 16.976358 22.512924 25.936831 31.307526">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g582"><text
+             id="text586"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,144.91483,143.287)"><tspan
+               id="tspan584"
+               y="0"
+               x="0 9.118 14.55 20.563999 27.16 30.07 35.113998 38.740829 41.650829 50.768829 56.782829 59.692829 64.736832 73.854828 78.898827 85.300827 88.986832 94.03083 97.657661 103.28366 106.91049 111.95449 114.86449 123.98249 129.99649 132.90649 137.95049 141.57732 146.62132 150.30733 155.93332 159.61932 164.66331 167.57332 172.61732 177.66132 182.70532 186.33215 191.95815 197.00215 200.68816 206.12015 210.38815 214.01498 217.70097 224.10298 229.72897 233.41498 237.04181 241.30981 246.35381 251.39781 256.4418 259.35181 264.39581 269.43982 274.4838 278.11063 284.12463 289.75064 294.98865 300.03265">module implements a simple stateless actor that receives pages</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g588"><text
+             id="text592"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,129.707)"><tspan
+               id="tspan590"
+               y="0"
+               x="0 3.1040001 7.3720002 12.804 21.922001 25.08226 28.768259 35.170261 40.21426">from the </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g594"><text
+             id="text598"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,133.374,129.707)"><tspan
+               id="tspan596"
+               y="0"
+               x="0">P</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g600"><text
+             id="text604"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,137.367,129.707)"><tspan
+               id="tspan602"
+               y="0"
+               x="0 5.3497438 8.9386473 13.486977 18.857674">arser</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g606"><text
+             id="text610"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,159.20926,129.707)"><tspan
+               id="tspan608"
+               y="0"
+               x="0 5.6259999 12.028 18.042 21.202259 27.216261 32.260262 35.170261 38.080261 43.12426 48.168259 52.43626 57.480259 60.640518 64.326523 70.728523 75.772522 78.932777 83.200783 88.244781 93.28878 99.884781 102.79478 106.48078 109.39078 115.79278 121.03078 124.19104 131.75703 137.18904 141.45705 147.47104 150.6313 155.67529 161.1073 167.70329 174.1053 177.79131 182.8353 185.99556 189.68156 195.11356 198.27382 201.95982 208.36182 213.40582">and delivers the resulting word counts to the </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g612"><text
+             id="text616"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,375.773,129.707)"><tspan
+               id="tspan614"
+               y="0"
+               x="0">A</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g618"><text
+             id="text622"
+             style="font-variant:normal;font-weight:normal;font-size:8.72999954px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(0.833,0,0,-1,380.594,129.707)"><tspan
+               id="tspan620"
+               y="0"
+               x="0 4.7997541 9.5995083 15.132582 23.633856 29.166929 31.592125 36.941868 40.362282 45.703297">ccumulator</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g624"><text
+             id="text628"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,421.616,129.707)"><tspan
+               id="tspan626"
+               y="0"
+               x="0 3.1040001 6.2642598 14.02426 19.06826 23.33626">. Here</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g630"><text
+             id="text634"
+             style="font-variant:normal;font-weight:300;font-size:9.69999981px;font-family:BookmanStd;-inkscape-font-specification:BookmanStd-Light;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,116.127)"><tspan
+               id="tspan632"
+               y="0"
+               x="0 2.9100001 6.5960002 9.6999998 12.61 17.653999 20.757999 23.667999 30.07 33.174 36.278 42.874001 45.784 48.694">it is in full:</tspan></text>
+</g><path
+           id="path636"
+           style="fill:#c8ebdc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m -158.3856,-357.9472 h 909.3312 v 27.26528 h -909.3312 z" /><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g638"><text
+             id="text642"
+             style="font-variant:normal;font-weight:600;font-size:7.76000023px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Semibold;writing-mode:lr-tb;fill:#2222aa;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,97.808)"><tspan
+               id="tspan640"
+               y="0"
+               x="0 4.93536 8.4195995 11.14336 15.52 18.28256 21.51848 24.1336 29.945841 34.322479 37.085041 41.593601 45.473598 48.95784 53.33448 57.74992 62.188641 64.912399 67.527519 69.521843 71.5084 76.047997 78.663116 82.147362 86.524002 90.939438 95.378159 98.101921 102.10608 104.86864 106.7 110.70416">Actors/word_count/lib/counter.ex</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g644"><text
+             id="text648"
+             style="font-variant:normal;font-weight:bold;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono-Bold;writing-mode:lr-tb;fill:#90117d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,90,86.868)"><tspan
+               id="tspan646"
+               y="0"
+               x="0 4.672296 9.3445921 14.016888 18.689184 23.361481 28.033775 32.706074 37.378368">defmodule</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g650"><text
+             id="text654"
+             style="font-variant:normal;font-weight:normal;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,136.716,86.868)"><tspan
+               id="tspan652"
+               y="0"
+               x="0 4.672296 9.3445921 14.016888 18.689184 23.361481 28.033775">Counter</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g656"><text
+             id="text660"
+             style="font-variant:normal;font-weight:bold;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono-Bold;writing-mode:lr-tb;fill:#90117d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,174.089,86.868)"><tspan
+               id="tspan658"
+               y="0"
+               x="0 4.672296">do</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g662"><text
+             id="text666"
+             style="font-variant:normal;font-weight:normal;font-size:6.98400021px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#78788c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,69.63,87.138)"><tspan
+               id="tspan664"
+               y="0"
+               x="0 3.296448 4.9307041 8.8068237 12.305808 13.786416">Line 1</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g668"><text
+             id="text672"
+             style="font-variant:normal;font-weight:bold;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono-Bold;writing-mode:lr-tb;fill:#90117d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,99.344,76.004)"><tspan
+               id="tspan670"
+               y="0"
+               x="0 4.672296 9.3445921">use</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g674"><text
+             id="text678"
+             style="font-variant:normal;font-weight:normal;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,118.031,76.004)"><tspan
+               id="tspan676"
+               y="0"
+               x="0 4.672296 9.3445921 14.016888 18.689184 23.361481 28.033775 32.706074 37.378368 42.050663 46.722961 51.395256 56.067551 60.739849 65.412148 70.084442 74.756737 79.429031 84.101326">GenServer.Behaviour</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g680"><text
+             id="text684"
+             style="font-variant:normal;font-weight:normal;font-size:6.98400021px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#78788c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,84.856,76.274)"><tspan
+               id="tspan682"
+               y="0"
+               x="0">-</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g686"><text
+             id="text690"
+             style="font-variant:normal;font-weight:bold;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono-Bold;writing-mode:lr-tb;fill:#90117d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,99.344,65.14)"><tspan
+               id="tspan688"
+               y="0"
+               x="0 4.672296 9.3445921">def</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g692"><text
+             id="text696"
+             style="font-variant:normal;font-weight:normal;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,118.031,65.14)"><tspan
+               id="tspan694"
+               y="0"
+               x="0 4.672296 9.3445921 14.016888 18.689184 23.361481 28.033775 32.706074 37.378368 42.050663">start_link</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g698"><text
+             id="text702"
+             style="font-variant:normal;font-weight:bold;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono-Bold;writing-mode:lr-tb;fill:#90117d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,169.418,65.14)"><tspan
+               id="tspan700"
+               y="0"
+               x="0 4.672296">do</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g704"><text
+             id="text708"
+             style="font-variant:normal;font-weight:normal;font-size:6.98400021px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#78788c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,84.856,65.41)"><tspan
+               id="tspan706"
+               y="0"
+               x="0">-</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g710"><text
+             id="text714"
+             style="font-variant:normal;font-weight:normal;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,108.688,54.276)"><tspan
+               id="tspan712"
+               y="0"
+               x="0 4.672296 9.3445921 14.016888 18.689184 23.361481 28.033775 32.706074 37.378368 42.050663 46.722961 51.395256 56.067551 60.739849 65.412148 70.084442 74.756737 79.429031 84.101326 88.773621 93.445923 98.118217 102.79051 107.46281 112.1351 116.8074 121.4797 126.15199 130.8243 135.49658 140.16888 144.84117 149.51347 154.18576">:gen_server.start_link(__MODULE__,</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g716"><text
+             id="text720"
+             style="font-variant:normal;font-weight:bold;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono-Bold;writing-mode:lr-tb;fill:#90117d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,272.193,54.276)"><tspan
+               id="tspan718"
+               y="0"
+               x="0 4.672296 9.3445921">nil</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g722"><text
+             id="text726"
+             style="font-variant:normal;font-weight:normal;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,286.208,54.276)"><tspan
+               id="tspan724"
+               y="0"
+               x="0">,</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g728"><text
+             id="text732"
+             style="font-variant:normal;font-weight:normal;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,295.552,54.276)"><tspan
+               id="tspan730"
+               y="0"
+               x="0 4.672296 9.3445921">[])</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g734"><text
+             id="text738"
+             style="font-variant:normal;font-weight:normal;font-size:6.98400021px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#78788c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,84.856,54.546)"><tspan
+               id="tspan736"
+               y="0"
+               x="0">-</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g740"><text
+             id="text744"
+             style="font-variant:normal;font-weight:bold;font-size:7.76000023px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:DejaVuSansMono-Bold;writing-mode:lr-tb;fill:#90117d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,99.344,43.412)"><tspan
+               id="tspan742"
+               y="0"
+               x="0 4.672296 9.3445921">end</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g746"><text
+             id="text750"
+             style="font-variant:normal;font-weight:normal;font-size:6.98400021px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#78788c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,83.417,43.682)"><tspan
+               id="tspan748"
+               y="0"
+               x="0">5</tspan></text>
+</g><path
+           id="path752"
+           style="fill:#ccdddd;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m -125.4384,-565.7897 h 1066.117 v 1.25484 h -1066.117 z" /><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g754"><text
+             id="text758"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#77aaaa;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,453.612,4.85)"><tspan
+               id="tspan756"
+               y="0"
+               x="0 2.289 5.796 9.7790003 13.622 15.911 18.228001 19.712 23.219 25.507999 27.797001 31.171 33.487999 37.345001 43.182999">report erratum </tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g760" /><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g762"><text
+             id="text766"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#77aaaa;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,499.763,4.85)"><tspan
+               id="tspan764"
+               y="0"
+               x="0">•</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g768" /><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-594.6512)"
+           id="g770"><text
+             id="text774"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#77aaaa;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,504.705,4.85)"><tspan
+               id="tspan772"
+               y="0"
+               x="0 3.948 5.586 8.3579998 11.494 15.351 18.122999">discuss</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-596.6589)"
+           id="g776"><text
+             id="text780"
+             style="font-variant:normal;font-weight:normal;font-size:8px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#323241;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,367.296,613.4)"><tspan
+               id="tspan778"
+               y="0"
+               x="0 5.3280001 9.184 12.952 14.648 18.752001 20.408001 22.104 27.431999 29.304001 32.472 35.119999 37.736 39.608002 44.16 48.568001 51.216 53.088001 57.48">Day 3: Distribution</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-596.6589)"
+           id="g782" /><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-596.6589)"
+           id="g784"><text
+             id="text788"
+             style="font-variant:normal;font-weight:normal;font-size:12px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#323241;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,431.76,613.4)"><tspan
+               id="tspan786"
+               y="0"
+               x="0">•</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-596.6589)"
+           id="g790" /><g
+           transform="matrix(2.509691,0,0,2.509691,-378.4152,-596.6589)"
+           id="g792"><text
+             id="text796"
+             style="font-variant:normal;font-weight:normal;font-size:8px;font-family:MyriadPro;-inkscape-font-specification:MyriadPro-Regular;writing-mode:lr-tb;fill:#323241;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="matrix(1,0,0,-1,437.688,613.4)"><tspan
+               id="tspan794"
+               y="0"
+               x="0 4.1040001 8.2080002">145</tspan></text>
+</g><g
+           transform="matrix(2.509691,0,0,2.509691,193.7943,-577.0833)"
+           id="g798"><text
+             id="text802"
+             style="font-variant:normal;font-weight:normal;font-size:10px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             transform="scale(1,-1)"><tspan
+               id="tspan800"
+               y="0"
+               x="0 7.2199998 14.44 21.66 24.440001 27.219999 29.440001 35 40.560001 46.119999 51.68 57.240002 62.240002 65.019997 67.239998 70.57">www.finebook.ir </tspan></text>
+</g></g></g></g></svg>

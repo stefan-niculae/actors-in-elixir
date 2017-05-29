@@ -25,6 +25,10 @@ count: false
 # Actori in Elixir
 ## Ștefan Niculae, Andreea-Daniela Ene
 
+.bottom[
+31 mai 2017 | Proiect ICLP | FMI UB
+]
+
 ---
 name: agenda
 layout: false
@@ -57,7 +61,7 @@ class: iterative-header-slide
 
 ## model computational
 
-.footnote[interviu: [Hewitt, Meijer and Szyperski - The Actor Model](https://www.youtube.com/watch?v=1zVdhDx7Tbs)]
+.footnote[sursa: [interviu Hewitt, Meijer and Szyperski](https://www.youtube.com/watch?v=1zVdhDx7Tbs)]
 
 <def>Actor</def> unitatea fundamentala de computatie.
 
@@ -169,28 +173,23 @@ class: iterative-header-slide
 - aparut in 2011
 
 --
-
 - construit peste Erlang
   - compileaza in bytecode pt Erlang Virtual Machine (BEAM)
 
 --
-
 - limbaj functional
   - functii ca first class citizen
   - accent pe recursie si higher-order functions
 
 --
-
 - tipuri dinamice (inferenta la runtime)
 - orientat-proces
 
 --
-
 - lightweight concurrency
 - message passing
 
 --
-
 - Gandit pt scalare — tolerant la erori
 
 --
@@ -1469,9 +1468,274 @@ name: scaling
 template: scaling
 class: iterative-header-slide
 
-## OTP
+## word counter
 
-TODO
+Sistem ce numara de cate ori apar cuvintele pe paginile Wikipedia.
+
+--
+
+- va functiona pe mai multe core-uri
+- poate scala pe mai mult de o masina
+- redresare in caz de esec
+
+---
+class: iterative-header-slide
+
+## word counter
+
+Actori:
+- un `Parser`: parseaza un dump Wikipedia in pagini
+
+--
+- mai multi `Counter`: numara cuvintele dintr-o pagina
+
+--
+- un `Accumulator`: tine minte totalul cuvintelor pt toate paginile
+
+--
+
+
+Pasi procesare:
+1. un `Counter` cere o pagina de la `Parser`.
+
+--
+2. `Counter`-ul numara cuvintele din pagina si le trimite la `Accumulator`
+
+--
+3. `Accumulator`-ul transmite `Parser`-ului ca pagina a fost procesata
+
+---
+class: iterative-header-slide
+
+## word counter
+
+![word-counter-diagram](word-counter-diagram.svg)
+
+---
+layout: false
+## Counter
+
+```
+defmodule Counter do
+  use GenServer.Behaviour
+```
+--
+```
+  # API public
+  def start_link do
+    :gen_server.start_link __MODULE__, nil, []
+  end
+  def deliver_page(pid, ref, page) do
+    :gen_server.cast pid, {:deliver_page, ref, page}
+  end
+```
+--
+```
+  # initializare
+  def init(_args) do
+*    Parser.request_page(self)
+    {:ok, nil}
+  end
+```
+
+Pornim prin a cere o pagina de la `Parser`
+
+---
+## Counter
+
+```
+  # implementare
+  def handle_cast({:deliver_page, ref, page}, state) do
+*    Parser.request_page(self)
+
+    words = String.split(page)
+    counts = Enum.reduce words, HashDict.new, fn(word, counts) ->
+        Dict.update(counts, word, 1, &(&1 + 1))
+      end
+*    Accumulator.deliver_counts(ref, counts)
+    {:noreply, state}
+  end
+
+end  # Counter
+```
+
+La primirea unei pagini:
+1. cere o pagina noua (inainte de procesare pt minimizarea latentei)
+
+--
+2. numara cuvintele din pagina construind dictionarul `counts`
+
+--
+3. trimite dictionarul catre `Accumulator` impreuna cu `ref`-ul paginii
+
+---
+## Counter
+
+```
+defmodule CounterSupervisor do
+  use Supervisor.Behaviour
+
+  def start_link(num_counters) do
+    :supervisor.start_link(__MODULE__, num_counters)
+  end
+
+  def init(num_counters) do
+
+    # instantiem workeri
+    workers = Enum.map 1..num_counters, fn(n) ->
+      worker(Counter, [], id: "counter#{n}")
+    end
+
+    # :one_for_one - cand esueaza un proces il repornim
+    # :one_for_all - cand esueaza un proces le repornim pe toate
+    supervise workers, strategy: :one_for_one
+  end
+end
+```
+
+---
+## Accumulator
+
+Elemente stare:
+- `totals`: dictionar continand numarul total de aparitii
+- `processed_pages`: multime continand referintele paginilor procesate
+
+--
+
+```
+defmodule Accumulator do
+  use GenServer.Behaviour
+
+  # API public
+
+  def start_link do
+    :gen_server.start_link({:global, :wc_accumulator}, __MODULE__,
+      {HashDict.new, HashSet.new}, [])
+  end
+
+  # primeste pagina impreuna cu dictionarul de aparitii
+  def deliver_counts(ref, counts) do
+    :gen_server.cast {:global, :wc_accumulator}, {:deliver_counts, ref, counts}
+  end
+```
+
+---
+## Accumulator
+
+```
+def handle_cast({:deliver_counts, ref, counts}, {totals, processed_pages}) do
+*  if Set.member? processed_pages, ref do
+    {:noreply, {totals, processed_pages}}  # nu schimba nimic
+```
+--
+```
+  else
+    new_totals = Dict.merge(totals, counts, fn(_k, v1, v2) -> v1 + v2 end)
+    new_processed_pages = Set.put processed_pages, ref
+*    Parser.processed ref
+    {:noreply, {new_totals, new_processed_pages}}
+  end
+end
+```
+--
+
+La primirea unui dictionar de aparitii `counts`:
+1. verifica sa nu fi procesat deja pagina `ref`
+
+--
+2. aduna aparitiile din dictionar `count` la cele cunoscute `totals`
+
+--
+3. marcheaza pagina `ref` ca procesata
+
+--
+4. notifica parserul ca pagina `ref` a fost procesata
+
+
+---
+## Parser
+
+```
+defmodule Parser do
+  use GenServer.Behaviour
+
+  # API public
+
+  def start_link(filename) do
+    :gen_server.start_link({:global, :wc_parser}, __MODULE__, filename, [])
+  end
+
+  # apelat de Counter cand cere o pagina
+  def request_page(pid) do
+    :gen_server.cast {:global, :wc_parser}, {:request_page, pid}
+  end
+
+  # apelat de Accumulator cand a procesat o pagina
+  def processed(ref) do
+    :gen_server.cast {:global, :wc_parser}, {:processed, ref}
+  end
+```
+
+---
+## Parser
+
+Elemente stare:
+- `pending`: referinte ale paginilor trimise unui `Counter` dar neprocesate inca
+- `xml_parser`: parser din biblioteca Erlang pt dump-ul Wikipedia
+
+--
+
+```
+# initializare
+def init(filename) do
+  xml_parser = Pages.start_link(filename)
+  {:ok, {ListDict.new, xml_parser}}
+end
+
+# trimite pagina catre Counter si actualizeaza lista pending
+def handle_cast({:request_page, pid}, {pending, xml_parser}) do
+  new_pending = deliver_page(pid, pending, Pages.next(xml_parser))
+  {:noreply, {new_pending, xml_parser}}
+end
+
+# sterge pagina din lista de pending
+def handle_cast({:processed, ref}, {pending, xml_parser}) do
+  new_pending = Dict.delete pending, ref
+  {:noreply, {new_pending, xml_parser}}
+end
+```
+
+---
+## Parser
+
+```
+defp deliver_page(pid, pending, page) do
+  ref = make_ref()
+*  Counter.deliver_page pid, ref, page
+  Dict.put pending, ref, page
+end
+```
+
+--
+Trimite pagina catre `Counter` si inregistreaz-o in `pending`
+
+--
+```
+defp deliver_page(pid, pending, page) when nil?(page) do
+  if Enum.empty?(pending) do
+    pending  # gata: parsat toate paginile si trimis toate pending
+  else
+    {ref, prev_page} = List.last pending
+*    Counter.deliver_page pid, ref, prev_page
+    Dict.put(Dict.delete(pending, ref), ref, prev_page)
+  end
+end
+```
+
+--
+`page` este `nil` inseamna ca am terminat de parcurs dump-ul Wikipedia:
+
+Ia cel mai veche `ref` din `pending` si trimite-l catre `Counter`
 
 ---
 template: inverse
@@ -1499,6 +1763,11 @@ class: iterative-header-slide
 
 Altereaza atat ponderile cat si structura retelei, incercand sa gaseasca un echilibru intre fitness-ul solutiilor evoluate si diversitatea acestora.
 
+
+--
+
+**Exemplu aplicatie**: Simulator banc de pesti. Evolueaza reteaua sa se comporte precum un grup de pesti, fugind de un rechin.
+Fitness-ul este bazat pe cat de mult pot pestii sa ii supravietuiasca rechinului.
 
 
 ---

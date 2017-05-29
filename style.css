@@ -15,7 +15,7 @@
 
 
   --code-bg: #e7e8e2;
-  --highlight-color: #373832;
+  --highlight-color: #F8EDC9;
 
   --link-color: royalblue;
 }
@@ -164,9 +164,17 @@ code {
   color: var(--grey);
   font-size: 1.5em;
 }
+#slide-first .bottom {
+  position: absolute;
+  bottom: 2em;
+  color: var(--grey);
+  left: 50%;
+  transform: translate(-50%, 0);
+
+}
 
 #slide-agenda h1 {
-  margin-bottom: 0;
+  margin-bottom: .5em;
 }
 #slide-agenda {
   padding-top: 15%;  /* HACK pseudo vertically center */
