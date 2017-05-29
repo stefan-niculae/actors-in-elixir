@@ -1026,7 +1026,7 @@ defmodule Patterns do
   end
 end
 
-> Patterns.foo({:a, 42}) # Perehce, primul element a, al doilea 42
+> Patterns.foo({:a, 42}) # Pereche, primul element a, al doilea 42
 > Patterns.foo("eroare") # nu face match, eroare
 > Patterns.foo({:a, 42, "yahoo"}) # Triplet: a, 42, yahoo
 ```
@@ -1035,9 +1035,9 @@ end
 
 ```elixir
 defmodule Cache do
-  use GenServer.Behaviour
+  use GenServer.Behaviour # din Erlang
   #####
-  # External API
+  # API extern
 
   def start_link do
     :gen_server.start_link({:local, :cache}, __MODULE__, {HashDict.new, 0}, [])
@@ -1056,17 +1056,25 @@ defmodule Cache do
   end
 
   #####
-  # GenServer implementation
+  # implementare GenServer (custom)
 
+  # mesajele care nu au nevoie de reply
+  # arg1: mesajele, arg2: current state
   def handle_cast({:put, url, page}, {pages, size}) do
     new_pages = Dict.put(pages, url, page)
     new_size = size + byte_size(page)
     {:noreply, {new_pages, new_size}}
   end
+  
+  # mesajele care au nevoie de reply
+  # arg1: mesaj, arg2: sender, arg3: current state 
+  # →  pt mesaje get
   def handle_call({:get, url}, _from, {pages, size}) do
     {:reply, pages[url], {pages, size}}
   end
 
+  # → pt mesaje size
+  # _name variabila nefolosita
   def handle_call({:size}, _from, {pages, size}) do
     {:reply, size, {pages, size}}
   end
@@ -1079,8 +1087,248 @@ defmodule CacheSupervisor do
     :supervisor.start_link(__MODULE__, []) 
   end
 
+  # ruleaza la startup
+  # one_for_one - il restarteaza numai pe cel care a dat fail 
   def init(_args) do
     workers = [worker(Cache, [])]
+    supervise(workers, strategy: :one_for_one)
+  end
+end
+```
+
+
+
+#### Noduri
+
+Pentru ca două noduri să se poată conecta, ambele trebui denumite.
+
+```elixir
+# [PC1] run iex --sname node1@10.99.1.50 --cookie yumyum
+> Node.self # "node1@10.99.1.50"
+> Node.list # []
+```
+
+```elixir
+# [PC2] run iex --sname node1@10.99.1.92 --cookie yumyum
+> Node.self # "node2@10.99.1.92"
+```
+
+```elixir
+# [PC1]
+> Node.connect(:"node2@10.99.1.92") # true 
+> Node.list # [:"node2@10.99.1.92"]
+> whoami = fn() -> IO.puts(Node.self) end
+#Function<20.80484245 in :erl_eval.expr/5>
+> Node.spawn(:"node2@10.99.1.92", whoami) # output in primul nod
+# #PID<8242.50.0> node2@10.99.1.92
+
+# [PC2]
+> Node.list # [:"node1@10.99.1.50"]
+```
+
+Trimitere mesaje
+
+```elixir
+# [PC2]
+> pid = spawn(Counter, :loop, [42]) # PID<0.51.0>	
+> :global.register_name(:counter, pid) # yes
+
+# [PC1]
+> pid = :global.whereis_name(:counter) # #PID<7856.51.0>
+> send(pid, {:next}) | send(pid, {:next})
+
+# [PC2]
+# Număr curent: 42
+# Număr curent: 43
+```
+
+#### Word Count
+
+Wikipedia word count - se scaleaza pt un singur sistem şi se poate recupera de la defecte.![Word Count](/Users/andreea/Desktop/Elixir/Word Count.png)
+
+*parser* - parseaza intregul continut in pagini
+
+*counter* - numără cuvintele din pagini
+
+*acumulator* - urmăreşte totalul counterului de la nivelul paginilor.
+
+Procesarea începe de la *Counter*-ul care cere o pagină de la *Parser*. După ce acesta primeşte pagina, numără cuvintele şi le trimite la *Accumulator*.  La final, acesta trimite *Parser*-ului mesaj că pagina a fost procesată.
+
+```elixir
+# Counter → foloseşte modelul OTP server
+
+defmodule Counter do
+  use GenServer.Behaviour
+
+  #####
+  # External API
+  def start_link do
+    :gen_server.start_link(__MODULE__, nil, [])
+  end
+  def deliver_page(pid, ref, page) do
+    :gen_server.cast(pid, {:deliver_page, ref, page})
+  end
+
+  #####
+  # GenServer implementation
+
+  def init(_args) do
+    Parser.request_page(self()) 
+    {:ok, nil}
+  end
+
+  def handle_cast({:deliver_page, ref, page}, state) do 
+    Parser.request_page(self()) 
+
+    words = String.split(page) 
+    counts = Enum.reduce(words, HashDict.new, fn(word, counts) -> 
+        Dict.update(counts, word, 1, &(&1 + 1))
+      end) 
+    Accumulator.deliver_counts(ref, counts) 
+    {:noreply, state}
+  end
+end
+
+defmodule CounterSupervisor do
+  use Supervisor.Behaviour
+  def start_link(num_counters) do
+    :supervisor.start_link(__MODULE__, num_counters) 
+  end
+  def init(num_counters) do
+    workers = Enum.map(1..num_counters, fn(n) -> 
+      worker(Counter, [], id: "counter#{n}")
+    end)
+    supervise(workers, strategy: :one_for_one)
+  end
+end
+```
+
+```elixir
+# Accumulator 
+# totals - dicţionarul cu sumele acumulate
+# processed_pages - set cu referinţele paginilor procesate
+
+defmodule Accumulator do
+  use GenServer.Behaviour
+
+  #####
+  # External API
+
+  def start_link do
+    :gen_server.start_link({:global, :wc_accumulator}, __MODULE__, 
+      {HashDict.new, HashSet.new}, [])
+  end
+
+  def deliver_counts(ref, counts) do
+    :gen_server.cast({:global, :wc_accumulator}, {:deliver_counts, ref, counts}) 
+  end
+
+  def get_results do
+    :gen_server.call({:global, :wc_accumulator}, {:get_results})
+  end
+
+  #####
+  # GenServer implementation
+
+  def handle_cast({:deliver_counts, ref, counts}, {totals, processed_pages}) do
+    if Set.member?(processed_pages, ref) do
+      {:noreply, {totals, processed_pages}}
+    else
+      new_totals = Dict.merge(totals, counts, fn(_k, v1, v2) -> v1 + v2 end)
+      new_processed_pages = Set.put(processed_pages, ref)
+      Parser.processed(ref)
+      {:noreply, {new_totals, new_processed_pages}}
+    end
+  end
+
+  def handle_call({:get_results}, _, {totals, processed_pages}) do
+    {:reply, {totals, processed_pages}, {totals, processed_pages}}
+  end
+end
+
+defmodule AccumulatorSupervisor do
+  use Supervisor.Behaviour
+
+  def start_link do
+    :supervisor.start_link(__MODULE__, []) 
+  end
+
+  def init(_args) do
+    workers = [worker(Accumulator, [])]
+    supervise(workers, strategy: :one_for_one)
+  end
+end
+```
+
+```elixir
+# Parser
+# request_page() - apelat de Counter pentru a solicita o pagină
+# processed() - apelat de Accumulator pentru a indica faptul că pagina a fost procesată cu succes
+# pending - ListDict cu referinţele paginilor care au fost trimise la Counter (dar nu încă procesate)
+# xml_parser - actor care foloseşte biblioteca xmerl din Erlang pentru a face parse conţinutului din Wikipedia
+
+defmodule Parser do
+  use GenServer.Behaviour
+
+  #####
+  # External API
+
+  def start_link(filename) do
+    :gen_server.start_link({:global, :wc_parser}, __MODULE__, filename, [])
+  end
+
+  def request_page(pid) do
+    :gen_server.cast({:global, :wc_parser}, {:request_page, pid})
+  end
+
+  def processed(ref) do
+    :gen_server.cast({:global, :wc_parser}, {:processed, ref})
+  end
+
+  #####
+  # GenServer implementation
+
+  def init(filename) do
+    xml_parser = Pages.start_link(filename)
+    {:ok, {ListDict.new, xml_parser}}
+  end
+
+  def handle_cast({:request_page, pid}, {pending, xml_parser}) do
+    new_pending = deliver_page(pid, pending, Pages.next(xml_parser))
+    {:noreply, {new_pending, xml_parser}}
+  end
+
+  def handle_cast({:processed, ref}, {pending, xml_parser}) do
+    new_pending = Dict.delete(pending, ref)
+    {:noreply, {new_pending, xml_parser}}
+  end
+
+  defp deliver_page(pid, pending, page) when nil?(page) do
+    if Enum.empty?(pending) do
+      pending # Nothing to do
+    else
+      {ref, prev_page} = List.last(pending)
+      Counter.deliver_page(pid, ref, prev_page)
+      Dict.put(Dict.delete(pending, ref), ref, prev_page)
+    end
+  end
+
+  defp deliver_page(pid, pending, page) do
+    ref = make_ref()
+    Counter.deliver_page(pid, ref, page)
+    Dict.put(pending, ref, page)
+  end
+end
+
+defmodule ParserSupervisor do
+  use Supervisor.Behaviour
+
+  def start_link(filename) do
+    :supervisor.start_link(__MODULE__, filename)
+  end
+
+  def init(filename) do
+    workers = [worker(Parser, [filename])]
     supervise(workers, strategy: :one_for_one)
   end
 end
