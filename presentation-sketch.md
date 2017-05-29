@@ -1026,7 +1026,7 @@ defmodule Patterns do
   end
 end
 
-> Patterns.foo({:a, 42}) # Perehce, primul element a, al doilea 42
+> Patterns.foo({:a, 42}) # Pereche, primul element a, al doilea 42
 > Patterns.foo("eroare") # nu face match, eroare
 > Patterns.foo({:a, 42, "yahoo"}) # Triplet: a, 42, yahoo
 ```
@@ -1035,9 +1035,9 @@ end
 
 ```elixir
 defmodule Cache do
-  use GenServer.Behaviour
+  use GenServer.Behaviour # din Erlang
   #####
-  # External API
+  # API extern
 
   def start_link do
     :gen_server.start_link({:local, :cache}, __MODULE__, {HashDict.new, 0}, [])
@@ -1056,17 +1056,25 @@ defmodule Cache do
   end
 
   #####
-  # GenServer implementation
+  # implementare GenServer (custom)
 
+  # mesajele care nu au nevoie de reply
+  # arg1: mesajele, arg2: current state
   def handle_cast({:put, url, page}, {pages, size}) do
     new_pages = Dict.put(pages, url, page)
     new_size = size + byte_size(page)
     {:noreply, {new_pages, new_size}}
   end
+  
+  # mesajele care au nevoie de reply
+  # arg1: mesaj, arg2: sender, arg3: current state 
+  # →  pt mesaje get
   def handle_call({:get, url}, _from, {pages, size}) do
     {:reply, pages[url], {pages, size}}
   end
 
+  # → pt mesaje size
+  # _name variabila nefolosita
   def handle_call({:size}, _from, {pages, size}) do
     {:reply, size, {pages, size}}
   end
@@ -1079,11 +1087,59 @@ defmodule CacheSupervisor do
     :supervisor.start_link(__MODULE__, []) 
   end
 
+  # ruleaza la startup
+  # one_for_one - il restarteaza numai pe cel care a dat fail 
   def init(_args) do
     workers = [worker(Cache, [])]
     supervise(workers, strategy: :one_for_one)
   end
 end
+```
+
+
+
+#### Noduri
+
+Pentru ca două noduri să se poată conecta, ambele trebui denumite.
+
+```elixir
+# [PC1] run iex --sname node1@10.99.1.50 --cookie yumyum
+> Node.self # "node1@10.99.1.50"
+> Node.list # []
+```
+
+```elixir
+# [PC2] run iex --sname node1@10.99.1.92 --cookie yumyum
+> Node.self # "node2@10.99.1.92"
+```
+
+```elixir
+# [PC1]
+> Node.connect(:"node2@10.99.1.92") # true 
+> Node.list # [:"node2@10.99.1.92"]
+> whoami = fn() -> IO.puts(Node.self) end
+#Function<20.80484245 in :erl_eval.expr/5>
+> Node.spawn(:"node2@10.99.1.92", whoami) # output in primul nod
+# #PID<8242.50.0> node2@10.99.1.92
+
+# [PC2]
+> Node.list # [:"node1@10.99.1.50"]
+```
+
+Trimitere mesaje
+
+```elixir
+# [PC2]
+> pid = spawn(Counter, :loop, [42]) # PID<0.51.0>	
+> :global.register_name(:counter, pid) # yes
+
+# [PC1]
+> pid = :global.whereis_name(:counter) # #PID<7856.51.0>
+> send(pid, {:next}) | send(pid, {:next})
+
+# [PC2]
+# Număr curent: 42
+# Număr curent: 43
 ```
 
 # Studiu de caz
