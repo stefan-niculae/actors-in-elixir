@@ -1,0 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+/* Variables */
+* {
+  --black: #000;
+  --faded-black: #777;
+  --white: #f3f3f3;
+  --grey: #777872;
+  --grey-bg: #272822;
+  --red: #fa0000;
+  --shadow: #333;
+
+
+  --code-bg: #e7e8e2;
+  --highlight-color: #373832;
+
+  --link-color: rgb(249, 38, 114);
+}
+
+/* Font faces */
+body {
+  font-family: 'Droid Serif';
+}
+h1,
+h2,
+h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.remark-code,
+.remark-inline-code {
+  font-family: 'Ubuntu Mono';
+}
+
+
+/* Sizes */
+.remark-slide-content h1 { font-size: 3em; }
+.remark-slide-content h2 { font-size: 2em; }
+.remark-slide-content h3 { font-size: 1.6em; }
+
+/* Misc classes */
+.red {
+  color: var(--red);
+}
+.large {
+  font-size: 2em;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 3em;
+}
+li p {
+  line-height: 1.25em;
+}
+
+.middle h1 {
+  margin-top: 0;
+}
+
+/* Colors */
+a,
+a > code {
+  color: var(--link-color);
+  text-decoration: none;
+}
+code {
+  background: var(--code-bg);
+  border-radius: 3px;
+}
+.remark-code-line-highlighted {
+  background-color: var(--highlight-color);
+}
+.section-number {
+  color: var(--faded-black);
+}
+
+/* Side by side slide layout */
+.pull-left {
+  float: left;
+  width: 48%;
+}
+.pull-right {
+  float: right;
+  width: 48%;
+}
+.pull-right ~ p {
+  clear: both;
+}
+
+/* For part separation */
+.inverse {
+  background: var(--grey-bg);
+  color: var(--grey);
+  text-shadow: 0 0 20px var(--shadow);
+}
+.inverse h1,
+.inverse h2 {
+  color: var(--white);
+  line-height: 0.8em;
+}
+
+/* Two-column layout */
+.left-column {
+  color: var(--faded-black); /* show previous headers more faded*/
+  width: 20%;
+  /*height: 92%;*/
+  float: left;
+}
+.left-column h2:last-of-type,
+.left-column h3:last-child {
+  color: var(--black);  /* show newest one more proeminent */
+}
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+
+#slide-first .remark-slide-number,
+#slide-agenda .remark-slide-number,
+.inverse .remark-slide-number {
+  display: none;  /* hide page numbers on first page */
+}
+
+
+/* Slide specific */
+#slide-first h3 {
+  margin-top: .5em !important;
+}
+#slide-agenda {
+  padding-top: 15%;  /* HACK pseudo vertically center */
+}
+#slide-agenda ol {
+  padding-top: 1em;
+  list-style-type: upper-roman;
+  display: inline-block;
+}
+#slide-agenda li {
+  text-align: left;
+  margin-left: 2em; /* HACK to "weight-center" list */
+  padding-left: .25em; /* a bit of space between number and title */
+  font-size: 1.25em;
+  line-height: 1.35em;
+}
+
+/* Iterative header */
+.iterative-header-slide h2 {
+  display: inline-block;
+}
+.iterative-header-slide h2:first-of-type {
+  color: var(--faded-black);
+}
+.iterative-header-slide h2:first-of-type::after {
+  content: ' – ';
+}
