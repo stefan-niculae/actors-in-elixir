@@ -1,10 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
-@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /* Variables */
 * {
-  --black: #000;
+  --black: #333;
   --faded-black: #777;
   --white: #f3f3f3;
   --grey: #777872;
@@ -21,18 +22,25 @@
 
 /* Font faces */
 body {
-  font-family: 'Droid Serif';
+  font-family: 'Raleway', sans-serif;
+  line-height: 160%;
 }
 h1,
 h2,
 h3 {
-  font-family: 'Yanone Kaffeesatz';
-  font-weight: 400;
-  margin-bottom: 0;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .remark-code,
 .remark-inline-code {
-  font-family: 'Ubuntu Mono';
+  font-family: 'Hack', 'Ubuntu Mono', monospace;
+}
+.remark-slide-number {
+  font-family: 'Avenir', 'Open Sans', sans-serif;
+}
+def {
+  font-family: 'Big Caslon', serif;
+  font-size: 1.1em;
+  font-style: italic;
 }
 
 
@@ -40,6 +48,11 @@ h3 {
 .remark-slide-content h1 { font-size: 3em; }
 .remark-slide-content h2 { font-size: 2em; }
 .remark-slide-content h3 { font-size: 1.6em; }
+.remark-code,
+.remark-inline-code {
+  font-size: .7em;
+  line-height: 140%;
+}
 
 /* Misc classes */
 .red {
@@ -64,17 +77,16 @@ li p {
   padding-left: 3px;
   padding-right: 3px;
 }
+.remark-code {
+  padding-left: 1em !important;
+}
 
 blockquote {
   color: var(--grey);
   font-style: italic;
 }
-
-def {
-  font-style: italic;
-}
 def::after {
-  content: ' := '
+  content: ' = '
 }
 
 /* Colors */
@@ -142,16 +154,24 @@ code {
   display: none;  /* hide page numbers on first page */
 }
 
-
 /* Slide specific */
-#slide-first h3 {
+#slide-first h1,
+#slide-first h2 {
+  line-height: 0.8em;
+}
+#slide-first h2 {
   margin-top: .5em !important;
+  color: var(--grey);
+  font-size: 1.5em;
+}
+
+#slide-agenda h1 {
+  margin-bottom: 0;
 }
 #slide-agenda {
   padding-top: 15%;  /* HACK pseudo vertically center */
 }
 #slide-agenda ol {
-  padding-top: 1em;
   list-style-type: upper-roman;
   display: inline-block;
 }

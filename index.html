@@ -18,10 +18,12 @@ class: center, middle, inverse
 
 ---
 name: first
+layout: false
+class: center, middle
 count: false
 
 # Actori in Elixir
-### Stefan Niculae, Andreea-Daniela Ene
+## Ștefan Niculae, Andreea-Daniela Ene
 
 ---
 name: agenda
@@ -59,15 +61,25 @@ class: iterative-header-slide
 
 <def>Actor</def> unitatea fundamentala de computatie.
 
+--
+
 Laturi esentiale:
 
 - procesare
 - stocare
 - comunicare
 
+---
+template: actors
+class: iterative-header-slide
+
+## model computational
+
+Fiecare actor are o _adresa_ si un _mailbox_.
+
 --
 
-Fiecare actor are o adresa si un mailbox. Un actor poate trimite mesaje altuia. Cand isi trimite siesi se numeste recursie.
+Un actor poate trimite mesaje altuia. Cand isi trimite siesi se numeste recursie.
 
 --
 
@@ -83,30 +95,34 @@ class: iterative-header-slide
 
 ## model computational
 
-TODO: order
+- Programare functionala: evita stare mutabila.
 
-Programare functionala: evita stare mutabila.
-
-Programare cu actori: mentine stare mutabila dar nu o partajeaza.
+  Programare cu actori: mentine stare mutabila dar nu o partajeaza.
 
 --
 
-Model computational *configuration-based* in loc de *state-machine*. Un mesaj *se duce*, nu ajunge instant dintr-o stare in alta.
+- Model computational *configuration-based* in loc de *state-machine*. Un mesaj *se duce*, nu ajunge instant dintr-o stare in alta.
 
-Mai fidel unui model fizic decat unuia algebric.
+  Mai fidel unui model fizic decat unuia algebric.
 
 --
 
-Fata de modelul de calcul Turing, care permite *nedeterminism bounded*, modelul de Actori permite *indeterminism unbounded* — un request poate lua oricat timp sa ajunga la server, *arbitrul* sa il aleaga si sa se intoarca raspunsul.
+- Modelul Turing: *nedeterminism bounded*.
+
+  Modelul cu Actori: *indeterminism unbounded* — un request poate lua oricat timp sa ajunga la server, *arbitrul* sa il aleaga si sa se intoarca raspunsul.
 
 ---
 class: iterative-header-slide
 
 ## model computational
 
+Mesajele sunt trimise direct, nu printr-un canal, eliminand overhead-ul.
+
+--
+
 Nu este garantata pastrarea ordinii trimiterii mesajelor la primire.
 
-Mesajele sunt trimise direct, nu printr-un canal ➡ fara overhead.
+--
 
 Sincronizarea este condusa de faptul ca mesajele sunt procesate cate unul.
 
@@ -118,9 +134,15 @@ class: iterative-header-slide
 
 <def>Actor</def> process
 
+--
+
 <def>Adresa</def> PID (process identifier)
 
+--
+
 <def>Mesaj</def> tuplu  `{:set, "Popescu", 500}`
+
+--
 
 <def>Mailbox</def> coada
 
@@ -144,22 +166,35 @@ class: iterative-header-slide
 
 ## despre limbaj
 
-TOOD: order
+- aparut in 2011
 
-- Limbaj functional
-  - functii ca first class citizen
-  - accent pe recursie higher-order functions
-  - imutabilitate date
-- Tipuri dinamice (inferenta la runtime)
-- Lightweight concurrency
-  - "shared nothing" actors
-  - message passing
-- Orientat-proces
-- Construit peste Erlang
+--
+
+- construit peste Erlang
   - compileaza in bytecode pt Erlang Virtual Machine (BEAM)
-- A aparut in 2011
+
+--
+
+- limbaj functional
+  - functii ca first class citizen
+  - accent pe recursie si higher-order functions
+
+--
+
+- tipuri dinamice (inferenta la runtime)
+- orientat-proces
+
+--
+
+- lightweight concurrency
+- message passing
+
+--
+
 - Gandit pt scalare — tolerant la erori
-- Exemplu: Pinterest
+
+--
+- Utilizator important: _Pinterest_
 
 
 ---
@@ -167,7 +202,7 @@ class: iterative-header-slide
 
 ## tipuri
 
-.footnote[sursa: [Documentatie Elixir](https://elixir-lang.org/getting-started/introduction.html)]
+.footnote[sursa: [documentatie Elixir](https://elixir-lang.org/getting-started/introduction.html)]
 
 ```elixir
 5            # int
@@ -326,7 +361,6 @@ class: iterative-header-slide
 Operatorul pin `^`
 
 ```elixir
-
 > x = 1
 > ^x = 2
 MatchError
@@ -403,29 +437,24 @@ defmodule Modul do
     a + b
   end
 
-  # functie privata, argument implicit
-  defp private(x \\ "default") do
+  defp private(x \\ "default") do  # functie privata, argument implicit
     x <> "!"
   end
 
-  # pattern matching, guards, keyword list form
-  def zero?(0), do: true
-  def zero?(x) when is_integer(x), do: false
+  def zero?(0), do: true  # pattern matching, keyword list form
+  def zero?(x) when is_integer(x), do: false  # guard
 end
 ```
 --
 ```
-> Modul.sum(2, 3)
-5
-> Modul.private("a")
-UndefinedFunctionError
+> Modul.sum(2, 3)     #=> 5
+> Modul.private("a")  #=> UndefinedFunctionError
 ```
 --
 ```
 # functie anonima
 > f = &(&1 * &2)
-> f.(2, 3)
-6
+> f.(2, 3)            #=> 6
 ```
 
 ---
@@ -447,8 +476,7 @@ class: iterative-header-slide
 ```
 --
 ```
-# toate numerele pitagoreice
-# ie, {a, b, c} aî a^2 + b^2 = c^2
+# numerele pitagoreice, ie: {a, b, c} aî a^2 + b^2 = c^2
 > def pythagorean(n) when n > 0 do
     # list comprehension
     for a &lt;- 1..n,  # produs cartezian [1..n]^3
@@ -460,7 +488,10 @@ class: iterative-header-slide
   end
 ```
 --
-Functiile din modulul `Enum` sunt eager. Modulul `Stream` are echivalentele lor in varianta lazy (ca in Haskell).
+Functiile din modulul `Enum` sunt eager. Modulul `Stream` are echivalentele lor in varianta lazy.
+
+???
+Lazy ca in Haskell
 
 ---
 class: iterative-header-slide
@@ -471,7 +502,10 @@ Izolate, ruleaza concurent, comunica prin mesaje.
 
 --
 
-Ca si in Erlang, sunt foarte lightweight — consuma putine resurse & timp de pornire mic (mai putine decat thread-urile din alte limbaje).
+Foarte lightweight — consuma putine resurse si au timp de pornire mic (mai usoare decat thread-urile din alte limbaje).
+
+???
+Lightweight ca in Erlang
 
 --
 ```elixir
@@ -485,7 +519,12 @@ false  # a terminat deja de rulat 1 + 2
 > send self, {:hello, "fmi"}  # trimite un mesaj siesi
 > send self, {:hello, "ub"}   # pune in continuare in mailbox
 ```
---
+
+---
+class: iterative-header-slide
+
+## procese
+
 ```
 > receive do  # citeste primul mesaj din mailbox
     {:hello, name} -> "salut, #{name}"
@@ -594,9 +633,9 @@ class: iterative-header-slide
 ## structuri
 
 ```elixir
-> defmodule User do  # numele structurii
-    defstruct nume: "Ana", ani: 23  # valori implicite
-  end
+defmodule User do  # numele structurii
+  defstruct nume: "Ana", ani: 23  # valori implicite
+end
 ```
 --
 ```
@@ -625,10 +664,10 @@ class: iterative-header-slide
 ## structuri
 
 ```elixir
-> defmodule Struct do
-	@enforce_keys [:obligatorie]
-	defstruct [:obligatorie, :optionala]
-  end
+defmodule Struct do
+  @enforce_keys [:obligatorie]
+  defstruct [:obligatorie, :optionala]
+end
 ```
 --
 ```
@@ -648,35 +687,31 @@ class: iterative-header-slide
 
 Mecanism de polimorfism.
 
+
 ```elixir
 defprotocol Mergator do
-    def nr_picioare(data)
-end
+  def nr_picioare(data)
 ```
 --
 ```
 defimpl Mergator, for: Pers do
   def nr_picioare(pers), do: 2
-end
 ```
 --
 ```
 defimpl Mergator, for: Catel do
   # nr_picioare neimplementat, vom primi warning
-end
 ```
 --
 ```
 defimpl Mergator, for: Any do
   def nr_picioare(_), do: 0  # implicit, zero picioare
-end
 ```
 --
 ```
 defmodule Sarpe do
   @derive[Mergator]  # fallback, ii este suficienta implementarea cu zero
   defstruct [:nume, :lungime]
-end
 ```
 
 ---
@@ -723,7 +758,9 @@ Trei mecanisme de eroare:
 ```elixir
 > :foo + 1  # adunare atom cu numar
 ArithmeticError  # eroare, sau exceptie
-
+```
+--
+```
 > raise "oops"  # invocare exceptie manual
 RuntimeError oops
 ```
@@ -860,7 +897,6 @@ Actorii rulează în acelaşi timp, dar sunt prelucraţi secvenţial.
 --
 
 ```elixir
-# hello_actors.exs
 defmodule Talker do
   def loop do
     receive do  # asteptare
@@ -910,12 +946,12 @@ Mentinem starea prin argumente si tail recursion.
 
 ```elixir
 defmodule Counter do
-   def loop(count) do
-      receive do
-         {:next} ->
-            IO.puts("Număr curent: #{count}")
-            loop(count + 1)
-      end
+  def loop(count) do
+    receive do
+      {:next} ->
+        IO.puts "Număr curent: #{count}"
+        loop(count + 1)
+    end
    end
 end
 ```
@@ -957,7 +993,12 @@ defmodule Counter do
     end
   end
 ```
---
+
+---
+class: iterative-header-slide
+
+## API
+
 ```
   def loop(count) do
     receive do
@@ -966,14 +1007,9 @@ defmodule Counter do
         loop(count + 1)                 # incrementeaza count pt urmatorul apel
     end
   end
-end
+end  # Counter
 ```
-
----
-class: iterative-header-slide
-
-## API
-
+--
 ```elixir
 > Counter.start(42)
 > Counter.next  # 42
@@ -995,7 +1031,7 @@ defmodule Parallel do
   def map(collection, fun) do
     parent = self  # cui vor trimite workerii inapoi
 
-	  # crează câte un proces pentru fiecare element din colecţie
+    # crează câte un proces pentru fiecare element din colecţie
     processes = Enum.map collection, fn(e) ->
         spawn_link fn ->
             send parent, {self, fun.(e)}
@@ -1004,7 +1040,7 @@ defmodule Parallel do
 ```
 --
 ```
-	  # aşteaptă fiecare rezultat
+    # aşteaptă fiecare rezultat
     Enum.map processes, fn(pid) ->
         receive do
           {^pid, result} -> result
@@ -1021,7 +1057,13 @@ class: iterative-header-slide
 
 ```elixir
 slow_double = fn(x) -> :timer.sleep(1000); x * 2 end
+```
+--
+```
 > Enum.map     [1, 2, 3, 4], slow_double  # 4s
+```
+--
+```
 > Parallel.map [1, 2, 3, 4], slow_double  # 1s
 ```
 
@@ -1082,7 +1124,13 @@ class: iterative-header-slide
 
 ```elixir
 slow_add = fn(a, b) -> :timer.sleep(1000); a + b end  # trebuie sa fie asociativ
+```
+--
+```
 > Enum.reduce     [1, 2, 3, 4, 5, 6], slow_add  # 5s
+```
+--
+```
 > Parallel.reduce [1, 2, 3, 4, 5, 6], slow_add  # 3s
 ```
 
@@ -1116,7 +1164,6 @@ Modul care cache-uieste pagini web:
 ```
 def put(url, page) do
   send :cache, {:put, url, page}
-end
 ```
 --
 ```
@@ -1126,7 +1173,6 @@ def get(url) do
   receive do
     {:ok, ^ref, page} -> page
   end
-end
 ```
 --
 ```
@@ -1136,7 +1182,6 @@ def size do
   receive do
     {:ok, ^ref, s} -> s
   end
-end
 ```
 
 ---
@@ -1175,10 +1220,10 @@ class: iterative-header-slide
 Folosire normala:
 
 ```elixir
-> Cache.put "google.com", "Search..."  # {:put, "google.com", "Welcome to Google"}
-> Cache.get "google.com"               # "Welcome to Google"
-> Cache.size                           # 9
-> Cache.get "unibuc.ro"                # nu am pus nimic la adresa asta
+> Cache.put "google.com", "Search the Web"  #=> {:put, "google.com", "Search the Web"}
+> Cache.get "google.com"                    #=> "Search the Web"
+> Cache.size                                #=> 14
+> Cache.get "unibuc.ro"                     #=> nil - nu am pus nimic la adresa asta
 ```
 
 --
@@ -1208,8 +1253,17 @@ class: iterative-header-slide
 Despre legare:
 
 - Doua procese pot fi legate prin `Process.link(pid)`.
+
+--
+
 - Cand oricare se termina neasteptat, ambele se opresc.
+
+--
+
 - Cand unul dintre ele se termina normal (`exit :normal`), procesul legat nu se incheie.
+
+--
+
 - Prin `Process.flag(:trap_exit true)`, la terminare anormala, procesul legat va fi doar notificat.
 
 ---
@@ -1260,7 +1314,6 @@ Definim un supervizor care restarteaza actorul `Cache` in caz de esuare:
 defmodule CacheSupervisor do
   def start do
     spawn __MODULE__, :loop_system, []
-  end
 ```
 --
 ```
@@ -1276,16 +1329,12 @@ defmodule CacheSupervisor do
       {:EXIT, ^pid, reason} ->
         IO.puts "cache a esuat cu motivul #{inspect reason} - restartam"
         loop
-    end
-  end
 ```
 --
 ```
   def loop_system do
     Process.flag :trap_exit, true  # setam flag-ul de supervizare
     loop
-  end
-end
 ```
 
 ---
@@ -1324,28 +1373,21 @@ class: iterative-header-slide
 ## error kernel
 
 > Există doua moduri de face designul unui software,
-
---
-
-> il poti face atat de simplu incat sa fie evident ca nu exista deficiente,
-
---
-
-> sau il poti face atat de complicat incat sa nu existe deficiente evidente.
-
+> il poti face atat de simplu incat sa fie evident ca nu exista greseli,
+> sau il poti face atat de complicat incat sa nu existe greseli evidente.
 > — Tony Hoare
 
 --
 
-In programarea de actori folosim observatia in a incorpora un error-kernel, partea care trebuie sa fie corecta pt ca intregul sistem sa functioneze corect.
+<def>Error kernel</def>partea care trebuie sa fie corecta pt ca intregul sistem sa functioneze corect.
 
 --
 
-Programele scrise bine il pastreaza cat mai mic si simplu cu putinta — atat de simplu incat este evident ca nu exista deficiente.
+Ideal cat mai mic si simplu cu putinta — atat de simplu incat sa fie evident ca nu exista greseli.
 
 --
 
-Asta duce la o ierarhie de error-kernel-uri, implementata prin supervizori in Elixir.
+Ierarhie de error-kernel-uri implementata prin supervizori in Elixir.
 
 
 ---
@@ -1384,6 +1426,8 @@ end
 
 Acum tratam si cazul `nil`.
 
+--
+
 Dar daca pasam keyword? Probabil codul care face asta are un bug si in felul asta noi l-am mascat.
 
 ---
@@ -1391,7 +1435,7 @@ class: iterative-header-slide
 
 ## error kernel
 
-In programarea cu actori, imbratisam filosofia "let it crash", lasand supervizorul sa adreseze problema.
+In programarea cu actori, imbratisam filosofia _"let it crash"_, lasand supervizorul sa adreseze problema.
 
 --
 
@@ -1405,9 +1449,7 @@ Beneficii:
 
 --
 
-- pe langa rezolvarea erorii, supervizorul o poate si loga, descoperind bug-uri
-
-
+- pe langa rezolvarea erorii, supervizorul le poate si loga, dezvaluind bug-uri
 
 
 
@@ -1451,7 +1493,7 @@ class: iterative-header-slide
 
 .footnote[sursa: [lucrare de K. Stanley si R. Miikkulainen](http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf)]
 
-NeuroEvolution of Augmenting Topologies (NEAT) este un algoritm genetic pt generarea retelelor neurale ce evolueaza.
+<def>NEAT</def> NeuroEvolution of Augmenting Topologies — algoritm genetic pt generarea retelelor neurale evolutive.
 
 --
 
@@ -1466,7 +1508,7 @@ class: iterative-header-slide
 
 .footnote[sursa: [implementare de Stuart Hunt](https://gitlab.com/onnoowl/Neat-Ex)]
 
-TOOD: https://gitlab.com/onnoowl/Neat-Ex/blob/master/lib/backprop/backprop.ex
+TODO: https://gitlab.com/onnoowl/Neat-Ex/blob/master/lib/backprop/backprop.ex
 
 
 ---
@@ -1480,8 +1522,23 @@ TODO: 1, 2, 4, 8, 16, 32, 64, 128 threads
 
     <script src="remark.min.js"></script>
     <script>
+      // https://github.com/gnab/remark/wiki/Configuration
       var slideshow = remark.create({
-          ratio: '4:3',
+          ratio: '16:10',
+          /*
+          https://highlightjs.org/static/demo/
+
+          default - brown
+          arduino-light - no bg, comments don't look different
+          atelier-forest-light - comments don't look different
+          atom-one-light
+          foundation
+          github-gist
+          googlecode - no bg
+          tomorrow - no bg
+          vs - harsh
+          xcode - harsh
+          */
           highlightStyle: 'atom-one-light',
           highlightLanguage: 'elixir',
           highlightLines: true,
