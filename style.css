@@ -16,7 +16,7 @@
   --code-bg: #e7e8e2;
   --highlight-color: #373832;
 
-  --link-color: rgb(249, 38, 114);
+  --link-color: royalblue;
 }
 
 /* Font faces */
@@ -56,9 +56,25 @@ h3 {
 li p {
   line-height: 1.25em;
 }
-
 .middle h1 {
   margin-top: 0;
+}
+
+.remark-inline-code {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+blockquote {
+  color: var(--grey);
+  font-style: italic;
+}
+
+def {
+  font-style: italic;
+}
+def::after {
+  content: ' := '
 }
 
 /* Colors */
