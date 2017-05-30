@@ -180,6 +180,7 @@ class: iterative-header-slide
 - limbaj functional
   - functii ca first class citizen
   - accent pe recursie si higher-order functions
+  - variabile imutabile
 
 --
 - tipuri dinamice (inferenta la runtime)
@@ -194,6 +195,14 @@ class: iterative-header-slide
 
 --
 - utilizator important: _Pinterest_
+    
+---
+class: iterative-header-slide
+
+## sintaxa
+    
+TODO: expresii, `end`, comentarii `#`
+    
 
 
 ---
@@ -284,6 +293,8 @@ true
 class: iterative-header-slide
 
 ## variabile
+    
+TODO: incep cu litera mica?, `_` pt unused
 
 ```elixir
 # refolosire
@@ -298,6 +309,9 @@ class: iterative-header-slide
 > y = 10; x+y
 13
 ```
+    
+???
+_ ca in Haskell/altele
 
 ---
 class: iterative-header-slide
@@ -429,6 +443,8 @@ class: iterative-header-slide
 ## functii
 
 Identificate dupa nume si aritate, grupate intr-un modul.
+    
+TODO: modulele incep cu litera mare, nu trebuie sa coincida cu numele fisierului?
 
 ```elixir
 defmodule Modul do
@@ -541,6 +557,9 @@ class: iterative-header-slide
 :ok
 ```
 
+???
+functia `send` in loc de `Pid ! Message` din Erlang
+    
 ---
 class: iterative-header-slide
 
@@ -562,6 +581,9 @@ Legam un supervizor prin primitiva `spawn_link/0`.
 PID<0.77.0>
 RuntimeError eroare (from PID<0.77.0>)
 ```
+
+???
+similar cu `link` si monitoarele din Erlang
 
 ---
 class: iterative-header-slide
@@ -1491,6 +1513,16 @@ name: scaling
 
 ---
 template: scaling
+class: iterative-header-slide
+    
+## OTP
+
+TODO
+    
+???
+din Erlang
+    
+---
 class: iterative-header-slide
 
 ## word counter
