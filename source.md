@@ -12,7 +12,7 @@ count: false
 ## Ștefan Niculae, Andreea-Daniela Ene
 
 .bottom[
-31 mai 2017 | Proiect ICLP | FMI UB
+31 mai 2017 | Proiect ICLP
 ]
 
 ---
