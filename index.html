@@ -1139,6 +1139,7 @@ class: iterative-header-slide
 slow_add = fn(a, b) -> :timer.sleep(1000); a + b end  # trebuie sa fie asociativ
 ```
 --
+
 ```
 > Enum.reduce     [1, 2, 3, 4, 5, 6], slow_add  # 5s
 ```
@@ -1146,6 +1147,7 @@ slow_add = fn(a, b) -> :timer.sleep(1000); a + b end  # trebuie sa fie asociativ
 Secvential - 5 timpi operatii: `1+2`, `2+3`, `3+4`, `4+5`, `5+6`
     
 --
+
 ```
 > Parallel.reduce [1, 2, 3, 4, 5, 6], slow_add  # 3s
 ```
