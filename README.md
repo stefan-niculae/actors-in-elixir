@@ -3,6 +3,11 @@ Presentation of Actors model, their implementation in Elixir and a case study
 
 Online: https://stefan1niculae.github.io/actors-in-elixir
 
+# TODO
+- compare to erlang: https://elixir-lang.org/crash-course.html
+- add pictures
+- add fonts to repo
+
 I   Actori
   - model programare
   - in elixir
