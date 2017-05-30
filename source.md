@@ -1510,10 +1510,137 @@ class: iterative-header-slide
 
 ## OTP
 
-TODO
+Biblioteca `OTP` (din Erlang) pune la dispozitie `GenServer` — un `behaviour` care automatizeaza crearea unui actor stateful.
 
-???
-din Erlang
+`Cache` reimplementat conform `GenServer`:
+
+```elixir
+defmodule Cache do
+  use GenServer.Behaviour
+
+  # adauga pagina la adresa data
+  def handle_cast({:put, url, page}, {pages, size}) do
+    new_pages = Dict.put(pages, url, page)
+    new_size = size + byte_size(page)
+    {:noreply, {new_pages, new_size}}
+
+  # trimite pagina de la adresa data
+  def handle_call({:get, url}, _from, {pages, size}) do
+    {:reply, pages[url], {pages, size}}
+
+  # trimite dimensiunea
+  def handle_call({:size}, _from, {pages, size}) do
+    {:reply, size, {pages, size}}
+```
+
+---
+class: iterative-header-slide
+
+## OTP
+
+API public:
+```elixir
+  def start_link do
+    :gen_server.start_link({:local, :cache}, __MODULE__, {Map.new, 0}, [])
+
+  # adauga pagina
+  def put(url, page) do
+    :gen_server.cast(:cache, {:put, url, page})
+
+  # trimite pagina
+  def get(url) do
+    :gen_server.call(:cache, {:get, url})
+
+  # trimite dimensiune
+  def size do
+    :gen_server.call(:cache, {:size})
+```
+
+---
+class: iterative-header-slide
+
+## conectare noduri
+
+<def>Nod</def> masina
+
+--
+
+Pentru ca două noduri să se poată conecta, ambele trebuie denumite (--sname).
+
+--
+
+Pentru o conexiune, securitatea minima este un --cookie partajat.
+
+--
+
+- `Node.self`:  afla numele nodului
+- `Node.list`: numele nodurilor conectate
+
+```elixir
+machine-1 $ iex --sname nod1 --cookie yumyum
+(nod1)> Node.self #=> :nod1
+(nod1)> Node.list #=> [] - niciun alt nod conectat
+```
+--
+
+```elixir
+machine-2 $ iex --sname nod2 --cookie yumyum
+(nod2)> Node.self #=> :nod2
+```
+
+---
+class: iterative-header-slide
+
+## conectare noduri
+
+`Node.connect` efectueaza o conexiune cu un alt nod:
+
+```elixir
+(nod1)> Node.connect(:nod2)
+(nod1)> Node.list  # [:nod2]
+```
+
+--
+
+`Node.spawn` porneste un thread pe alt nod si redirecteaza output-ul pe nodul host:
+
+```elixir
+(nod1)> whoami = fn-> IO.puts(Node.self) end
+(nod1)> Node.spawn :nod2, whoami
+PID<...> nod2  - output din nodul conectat
+```
+
+--
+
+Conexiunile sunt bidirectionale:
+
+```elixir
+(nod2)> Node.list  #=> [:nod1]
+```
+
+---
+class: iterative-header-slide
+
+## conectare noduri
+
+
+Inregistrare procese pe retea:
+
+```elixir
+(nod2)> pid = spawn Counter, :loop, [24]
+(nod2)> :global.register_name :counter, pid
+```
+
+--
+
+Aflare adresa de pe retea si trimitere mesaje distribuit:
+
+```elixir
+(nod1)> pid = :global.whereis_name :counter  #=> PID<...> nod2
+(nod1)> send pid, :next  # Număr curent: 24
+(nod1)> send pid, :next  # Număr curent: 25
+```
+
 
 ---
 class: iterative-header-slide
@@ -1611,7 +1738,7 @@ La primirea unei pagini:
 *   Parser.request_page(self)  # pas 1
 
     words = String.split(page)
-    counts = Enum.reduce words, HashDict.new, fn(word, counts) ->
+    counts = Enum.reduce words, Map.new, fn(word, counts) ->
 *       Dict.update(counts, word, 1, &(&1 + 1))  # pas 2
       end
 *   Accumulator.deliver_counts(ref, counts)  # pas 3
@@ -1643,7 +1770,7 @@ defmodule CounterSupervisor do
 
     # :one_for_one - cand esueaza un proces il repornim
     # :one_for_all - cand esueaza un proces le repornim pe toate
-    supervise workers, strategy: :one_for_one
+*   supervise workers, strategy: :one_for_one
   end
 end
 ```
@@ -1665,7 +1792,7 @@ defmodule Accumulator do
 
   def start_link do
     :gen_server.start_link({:global, :wc_accumulator}, __MODULE__,
-      {HashDict.new, HashSet.new}, [])  # initial, niciun cuvant numarat si nicio pagina procesata
+      {Map.new, HashSet.new}, [])  # initial, niciun cuvant numarat si nicio pagina procesata
   end
 
   # primeste pagina (identificata de ref) impreuna cu dictionarul de aparitii

@@ -1100,17 +1100,19 @@ end
 
 #### Noduri
 
-Pentru ca două noduri să se poată conecta, ambele trebui denumite.
+Pentru ca două noduri să se poată conecta, ambele trebuie denumite (`--sname`).
+
+Pentru o conexiune, securitatea minima este un `--cookie` partajat.
 
 ```elixir
-# [PC1] run iex --sname node1@10.99.1.50 --cookie yumyum
-> Node.self # "node1@10.99.1.50"
-> Node.list # []
+machine-1 $ iex --sname node1 --cookie yumyum
+> Node.self #=> "node1"
+> Node.list #=> [] - niciun alt nod conectat
 ```
 
 ```elixir
-# [PC2] run iex --sname node1@10.99.1.92 --cookie yumyum
-> Node.self # "node2@10.99.1.92"
+machine-2 $ iex --sname node2 --cookie yumyum
+> Node.self #=> "node2"
 ```
 
 ```elixir

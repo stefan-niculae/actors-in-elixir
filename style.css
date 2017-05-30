@@ -139,7 +139,7 @@ a > code {
 .inverse {
   background: var(--grey-bg);
   color: var(--grey);
-  text-shadow: 0 0 20px var(--shadow);
+  /*text-shadow: 0 0 20px var(--shadow);*/
 }
 .inverse h1,
 .inverse h2 {
