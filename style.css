@@ -86,10 +86,17 @@ li p {
 
 blockquote {
   color: var(--grey);
-  font-style: italic;
+  border-left: 5px solid #DDDDDD;
+  margin-left: 0;
+  padding-left: 1.5em;
 }
 def::after {
   content: ' = '
+}
+img {
+  margin: auto;
+  display: block;
+  max-width: 100%;
 }
 
 /* Colors */
@@ -98,8 +105,8 @@ a > code {
   color: var(--link-color);
   text-decoration: none;
 }
-code {
-  background: var(--code-bg);
+.remark-code {
+  background: var(--code-bg);.
   border-radius: 3px;
 }
 .remark-code-line-highlighted {
@@ -107,6 +114,12 @@ code {
 }
 .section-number {
   color: var(--faded-black);
+}
+.remark-inline-code {
+  background-color: #F8F8F8;
+  border: solid 1px #DFDFDF;
+  border-radius: 2px;
+  padding-bottom: 2px;
 }
 
 /* Side by side slide layout */

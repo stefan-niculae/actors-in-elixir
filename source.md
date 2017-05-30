@@ -1,4 +1,3 @@
-
 layout: true
 name: inverse
 class: center, middle, inverse
@@ -27,7 +26,6 @@ count: false
 2. Elixir
 3. Exemple practice
 4. Studiu de caz
-
 
 
 ---
@@ -117,7 +115,6 @@ Nu este garantata pastrarea ordinii trimiterii mesajelor la primire.
 
 Sincronizarea este condusa de faptul ca mesajele sunt procesate cate unul.
 
-
 ---
 class: iterative-header-slide
 
@@ -188,8 +185,9 @@ class: iterative-header-slide
 
 ## sintaxa
 
-TODO: expresii, `end`, comentarii `#`
-
+- expresiile sunt delimitate de newline sau `;`
+- comentariile incep cu `#`
+- blocurile incep cu `do` si se termina cu `end`
 
 
 ---
@@ -213,7 +211,7 @@ nil          # valoare nula
 --
 ```
 # keyword list
-> dict = [cheie: "valoare", secret: 123]
+> dict = [cheie: "valoare", secret: 123]  # cheia trebuie sa fie atom
 > dict[:secret]
 123
 ```
@@ -252,7 +250,6 @@ false
 true
 ```
 
-
 ---
 class: iterative-header-slide
 
@@ -281,7 +278,9 @@ class: iterative-header-slide
 
 ## variabile
 
-TODO: incep cu litera mica?, `_` pt unused
+Incep cu litera mica, pot contine litere mici/mari se pot termina in `?` sau `!`.
+
+Conventii: nume in `snake_case`; underscore `_` pt variable nefolosite.
 
 ```elixir
 # refolosire
@@ -290,13 +289,6 @@ TODO: incep cu litera mica?, `_` pt unused
 > var = 3
 3
 ```
---
-```
-# ; sau newline delimiteaza expresii
-> y = 10; x+y
-13
-```
-
 ???
 _ ca in Haskell/altele
 
@@ -316,19 +308,19 @@ Operatorul `=`
 --
 ```
 # variabile
-> 1 = x
-1
-> 2 = x
+> 1 = x  # x match-uieste cu patternul "1", ok
+> 2 = x  # x nu match-uieste cu patternul "2", eroare
 MatchError
 ```
 --
 ```
 # tupluri
-> {a, b, c} = {:hello, "world", 42}
+> {a, b, c} = {:hello, "world", 24}
 > a
 :hello
 > b
 "world"
+
 > {a, b, c} = {:hello, "world"}
 MatchError
 ```
@@ -382,9 +374,9 @@ class: iterative-header-slide
 ## branching
 
 ```elixir
-# case (haskell: case .. of ..)
+# case 
 case {1, 2, 3} do
-  {1, x, 3} when x > 0 -> "match-uiteste"
+  {1, x, 3} when x > 0 -> "match-uieste"
    _                   -> "otherwise"
 end
 ```
@@ -397,13 +389,16 @@ f = fn
 end
 ```
 --
-```
-# cond (multiple if, else if)
+```elixir
+# cond (similar cu mai multe if/else if)
 cond do
-  0 == 1 -> "nu match-uiteste"
+  0 == 1 -> "nu match-uieste"
   5 < 77 -> "aici da"
 end
 ```
+
+???
+in Haskell: case .. of ..
 
 ---
 class: iterative-header-slide
@@ -431,7 +426,9 @@ class: iterative-header-slide
 
 Identificate dupa nume si aritate, grupate intr-un modul.
 
-TODO: modulele incep cu litera mare, nu trebuie sa coincida cu numele fisierului?
+Modulele incep cu litera mare, nu trebuie sa coincida cu numele fisierului.
+
+--
 
 ```elixir
 defmodule Modul do
@@ -439,7 +436,7 @@ defmodule Modul do
     a + b
   end
 
-  defp private(x \\ "default") do  # functie privata, argument implicit
+  defp privat(x \\ "default") do  # functie privata, argument implicit
     x <> "!"
   end
 
@@ -449,14 +446,14 @@ end
 ```
 --
 ```
-> Modul.sum(2, 3)     #=> 5
-> Modul.private("a")  #=> UndefinedFunctionError
+> Modul.sum(2, 3)    #=> 5
+> Modul.privat("a")  #=> UndefinedFunctionError - inaccesibil
 ```
 --
 ```
 # functie anonima
-> f = &(&1 * &2)
-> f.(2, 3)            #=> 6
+> f = &(&1 * &2)     # &1 este primul argument
+> f.(2, 3)           #=> 6
 ```
 
 ---
@@ -472,26 +469,26 @@ class: iterative-header-slide
 --
 ```
 > odd? = &(rem(&1, 2) != 0)
-# range, pipe, higher order functions
+# range .., pipe |>, higher order functions
 > 1..100_000 |> Enum.map(&(&1 * 3)) |> Enum.filter(odd?) |> Enum.sum
 7500000000
 ```
---
-```
-# numerele pitagoreice, ie: {a, b, c} aî a^2 + b^2 = c^2
-> def pythagorean(n) when n > 0 do
-    # list comprehension
-    for a &lt;- 1..n,  # produs cartezian [1..n]^3
-        b &lt;- 1..n,
-        c &lt;- 1..n,
-        a + b + c <= n,  # doua filtre
-        a*a + b*b == c*c,
-        do: {a, b, c}
-  end
-```
---
 Functiile din modulul `Enum` sunt eager. Modulul `Stream` are echivalentele lor in varianta lazy.
 
+--
+
+```
+# numerele pitagoreice, ie: {a, b, c} aî a^2 + b^2 = c^2
+def pythagorean(n) when n > 0 do
+  # list comprehension
+  for a <- 1..n,  # produs cartezian [1..n]^3
+      b <- 1..n,
+      c <- 1..n,
+      a + b + c <= n,  # doua filtre
+      a*a + b*b == c*c,
+      do: {a, b, c}
+end
+```
 ???
 Lazy ca in Haskell
 
@@ -500,7 +497,7 @@ class: iterative-header-slide
 
 ## procese
 
-Izolate, ruleaza concurent, comunica prin mesaje.
+Memorie izolata, ruleaza concurent, comunica prin mesaje.
 
 --
 
@@ -651,7 +648,7 @@ end
 > %User{}  # valorile implicite
 %User{nume: "Ana", ani: 23}
 > %User{nume: "Bogdan"}
-%User{nume: "Bogdan", ani: 30}
+%User{nume: "Bogdan", ani: 23}
 ```
 --
 ```
@@ -674,7 +671,7 @@ class: iterative-header-slide
 
 ```elixir
 defmodule Struct do
-  @enforce_keys [:obligatorie]
+  @enforce_keys [:obligatorie]  # atribut
   defstruct [:obligatorie, :optionala]
 end
 ```
@@ -744,8 +741,7 @@ class: iterative-header-slide
 
 --
 
-Se pot defini implementari pt tipurile implicite: `BitString`, `Tuple`, `Map` etc.
-
+Se pot defini implementari pt tipurile implicite: `Tuple`, `Map` etc.
 
 ---
 class: iterative-header-slide
@@ -756,7 +752,7 @@ Trei mecanisme de eroare:
 
 - `error` — situatii exceptionale
 - `throw` — controlul executiei
-- `exit` — terminare proces
+- `exit`  — terminare proces
 
 --
 
@@ -765,12 +761,12 @@ Trei mecanisme de eroare:
 --
 
 ```elixir
-> :foo + 1  # adunare atom cu numar
+> :foo + 1       # adunare atom cu numar
 ArithmeticError  # eroare, sau exceptie
 ```
 --
 ```
-> raise "oops"  # invocare exceptie manual
+> raise "oops"   # invocare exceptie manual
 RuntimeError oops
 ```
 
@@ -832,7 +828,6 @@ class: iterative-header-slide
 --
 In interiorul unei functii, corpul este automat imbracat intr-un `try` daca exista `after`, `rescue` sau `catch`.
 
-
 ---
 class: iterative-header-slide
 
@@ -866,7 +861,6 @@ defmodule CalculatorObraznic do
 end
 ```
 
-
 ---
 class: iterative-header-slide
 
@@ -874,15 +868,15 @@ class: iterative-header-slide
 
 Atribute:
 
-  - constante statice ale structurilor
-  - documentatie
+- constante statice ale structurilor
+- documentatie
 
 --
 
 Meta programare:
 
-  - `macro` — extindere limbaj, permite manipularea directa a AST
-  - `DSL` (Domain Specific Language) — implementare API pt un caz aparte
+- `macro` — extindere limbaj, permite manipularea directa a AST
+- `DSL` (Domain Specific Language) — implementare API pt un caz aparte
 
 
 ---
@@ -931,7 +925,6 @@ end
 ```
 
 ---
-template: basics
 class: iterative-header-slide
 
 ## mesaje si mailbox
@@ -943,13 +936,20 @@ class: iterative-header-slide
 --
 ```
 # trimitere mesaje
-> send pid, {:salut, "Maria"}          # Bună, Maria
-> send pid, {:aniversare, "Ana", 16}   # Ana a implinit 16 ani
-> send pid, {:shutdown}                # Talker has exited, normal
+> send pid, {:salut, "Ana"}           # Bună, Ana
+> send pid, {:aniversare, "Ana", 23}  # Ana a implinit 23 ani
+> send pid, {:salut, "Maria"}         # Bună, Maria
+> send pid, {:shutdown}               # Talker has exited, normal
 ```
 
 Pattern matching pe structura si continutul mesajului trimis
 
+---
+class: iterative-header-slide
+
+## mesaje si mailbox
+
+![mailbox](img/mailbox.svg)
 
 ---
 class: iterative-header-slide
@@ -979,7 +979,6 @@ end
 ```
 
 Pastrare stare intre apeluri
-
 
 ---
 class: iterative-header-slide
@@ -1029,13 +1028,12 @@ end  # Counter
 ```
 --
 ```elixir
-> Counter.start(42)
-> Counter.next  # 42
-> Counter.next  # 43
+> Counter.start(24)
+> Counter.next  # 24
+> Counter.next  # 25
 ```
 
 Pastrare stare intre apeluri
-
 
 ---
 class: iterative-header-slide
@@ -1096,6 +1094,8 @@ class: iterative-header-slide
 
 Pornim cate un proces pt fiecare operatie de reducere, injumatatind de fiecare data lista de procesat — paralelism logaritmic.
 
+![parallel-reduce](img/parallel-reduce.gif)
+
 ```elixir
 def reduce(collection, fun) do
   len = length collection
@@ -1153,7 +1153,7 @@ slow_add = fn(a, b) -> :timer.sleep(1000); a + b end  # trebuie sa fie asociativ
 > Enum.reduce     [1, 2, 3, 4, 5, 6], slow_add  # 5s
 ```
 
-Secvential - 5 timpi operatii: `1+2`, `2+3`, `3+4`, `4+5`, `5+6`
+Secvential - 5 timpi operatii: `1+2`, `(1+2)+3`, `... +4`, `... +5`, `... +6`
 
 --
 
@@ -1162,10 +1162,9 @@ Secvential - 5 timpi operatii: `1+2`, `2+3`, `3+4`, `4+5`, `5+6`
 ```
 
 Paralel - log(5) = 3 timpi operatii:
- - `1+2`, `4+5`
- - `(1+2)+3`, `(4+5)+6`
- - `[(1+2)+3]` + `[(4+5)+6]`
-
+1. `1+2`, `4+5`
+2. `(1+2)+3`, `(4+5)+6`
+3. `[(1+2)+3] + [(4+5)+6]`
 
 
 ---
@@ -1194,17 +1193,17 @@ Modul care cache-uieste pagini web:
 
 --
 
-```
+```elixir
 def put(url, page) do
-  send :cache, {:put, url, page}
+  send :cache, {:put, url, page}  # doar trimite mai departe argumentele
 ```
 --
 ```
 def get(url) do
-  ref = make_ref()
-  send :cache, {:get, self, ref, url}
+  ref = make_ref()  # referinta unica, pt a putea fi identificat in receive
+  send :cache, {:get, self, ref, url}  # trimite argumentele
   receive do
-    {:ok, ^ref, page} -> page
+    {:ok, ^ref, page} -> page  # primeste si raspunsul
   end
 ```
 --
@@ -1226,20 +1225,20 @@ class: iterative-header-slide
 def loop(pages, size) do
   receive do
     {:put, url, page} ->
-      new_pages = Map.put pages, url, page
-      new_size = size + byte_size page
-      loop new_pages, new_size
+      new_pages = Map.put pages, url, page  # pune pagina in dictionar
+      new_size = size + byte_size page      # actualizeaza dimensiunea
+      loop new_pages, new_size              # pregateste starea pt un nou mesaj
 ```
 --
 ```
     {:get, sender, ref, url} ->
-      send sender, {:ok, ref, pages[url]}
-      loop pages, size
+      send sender, {:ok, ref, pages[url]}  # trimite pagina de la adresa ceruta
+      loop pages, size                     # starea ramane aceeasi pt urmatorul mesaj
 ```
 --
 ```
     {:size, sender, ref} ->
-      send sender, {:ok, ref, size}
+      send sender, {:ok, ref, size}        # analog cu :get
       loop pages, size
   end
 end
@@ -1275,8 +1274,7 @@ Nu am scris niciun cod pt verificarea argumentelor.
 
 --
 
-Separam tratarea argumentelor intr-un proces separat, **supervizor**.
-
+Separam tratarea erorilor intr-un proces separat, **supervizor**.
 
 ---
 class: iterative-header-slide
@@ -1285,7 +1283,7 @@ class: iterative-header-slide
 
 Despre legare:
 
-- Doua procese pot fi legate prin `Process.link(pid)`.
+- Doua procese pot fi legate prin `Process.link(pid_other)`.
 
 --
 
@@ -1304,18 +1302,20 @@ class: iterative-header-slide
 
 ## supervizare
 
+`Cache` rescris:
+
 
 ```elixir
 defmodule Cache do
   def start_link do
-    pid = spawn_link __MODULE__, :loop, [Map.new, 0]
+    pid = spawn_link(__MODULE__, :loop, [Map.new, 0])  # dictionar gol, dimensiune zero
     Process.register pid, :cache
     pid
   end
 ```
 --
 ```
-  # ... put/2, get/1 size/0
+  # ... put/2, get/1 size/0 ...
 ```
 --
 ```
@@ -1327,7 +1327,7 @@ defmodule Cache do
 ```
   def loop(pages, size) do
     receive do
-      # ... :put, :get, :size
+      # ... :put, :get, :size ...
       {:terminate} -> exit :normal
     end
   end
@@ -1339,38 +1339,41 @@ class: iterative-header-slide
 
 ## supervizare
 
-Definim un supervizor care restarteaza actorul `Cache` in caz de esuare:
+Definim un supervizor care reporneste actorul `Cache` in caz de esuare:
 
 --
 
 ```elixir
 defmodule CacheSupervisor do
   def start do
-    spawn __MODULE__, :loop_system, []
+    spawn(__MODULE__, :loop_system, [])  # niciun argument initial
 ```
 --
-```
-  def loop do
-    pid = Cache.start_link
-    receive do
-      {:EXIT, ^pid, :normal} ->
-        IO.puts "cache s-a terminal normal - inchidere"
-        :ok
-```
---
-```
-      {:EXIT, ^pid, reason} ->
-        IO.puts "cache a esuat cu motivul #{inspect reason} - restartam"
-        loop
-```
---
+
 ```
   def loop_system do
     Process.flag :trap_exit, true  # setam flag-ul de supervizare
-    loop
+    loop  # gata de primit mesaje
 ```
 
+--
+
+```
+  def loop do
+    pid = Cache.start_link  # porneste actorul Cache
+    receive do
+      {:EXIT, ^pid, :normal} ->
+        IO.puts "cache s-a terminal normal - inchidere"
+        :ok  # oprim si supervizorul
+```
+--
+```
+      {:EXIT, ^pid, reason} ->  # terminare anormala
+        IO.puts "cache a esuat cu motivul #{inspect reason} - repornim"
+        loop  # va reporni Cache
+```
 ---
+
 class: iterative-header-slide
 exclude: true
 
@@ -1399,7 +1402,6 @@ def get(url) do
 end
 ```
 
-
 ---
 class: iterative-header-slide
 
@@ -1416,12 +1418,11 @@ class: iterative-header-slide
 
 --
 
-Ideal cat mai mic si simplu cu putinta — atat de simplu incat sa fie evident ca nu exista greseli.
+Ideal cat mai mic si simplu cu putinta — astfel incat sa fie evident ca nu exista greseli.
 
 --
 
 Ierarhie de error-kernel-uri implementata prin supervizori in Elixir.
-
 
 ---
 class: iterative-header-slide
@@ -1459,31 +1460,36 @@ end
 
 Acum tratam si cazul `nil`.
 
---
 
-Dar daca pasam keyword? Probabil codul care face asta are un bug si in felul asta noi l-am mascat.
 
 ---
 class: iterative-header-slide
 
 ## error kernel
 
-In programarea cu actori, imbratisam filosofia _"let it crash"_, lasand supervizorul sa adreseze problema.
+Dar daca pasam un atom? 
 
 --
 
-Beneficii:
-
-- codul este mai simplu si usor de inteles, separare intre functionarea normala si cea toleranta
+Putem adauga inca o clauza insa probabil codul care a apelat astfel are un bug si in felul asta noi l‑am mascat.
 
 --
 
-- actorii sunt separati si nu impart aceeasi stare, prabusirea unuia neafectand alti actori
+In programarea cu actori, imbratisam mentalitatea _"let it crash"_, lasand supervizorul sa adreseze problema.
 
 --
 
-- pe langa rezolvarea erorii, supervizorul le poate si loga, dezvaluind bug-uri
+ Beneficii:
 
+* codul este mai simplu si usor de inteles, separare intre functionarea normala si cea toleranta
+
+--
+
+* actorii sunt separati si nu impart aceeasi stare, prabusirea unuia neafectand alti actori
+
+--
+
+* pe langa rezolvarea erorii, supervizorul le poate si loga, dezvaluind bug-uri
 
 
 ---
@@ -1528,7 +1534,7 @@ class: iterative-header-slide
 ## word counter
 
 Actori:
-- un `Parser`: parseaza un dump Wikipedia in pagini
+- un `Parser`: furnizeaza pagini dintr-un dump Wikipedia
 
 --
 - mai multi `Counter`: numara cuvintele dintr-o pagina
@@ -1540,7 +1546,7 @@ Actori:
 
 
 Pasi procesare:
-1. un `Counter` cere o pagina de la `Parser`.
+1. un `Counter` cere o pagina de la `Parser`
 
 --
 2. `Counter`-ul numara cuvintele din pagina si le trimite la `Accumulator`
@@ -1553,7 +1559,7 @@ class: iterative-header-slide
 
 ## word counter
 
-![word-counter-diagram](word-counter-diagram.svg)
+![word-counter-diagram](img/word-counter-diagram.svg)
 
 ---
 layout: false
@@ -1567,9 +1573,9 @@ defmodule Counter do
 ```
   # API public
   def start_link do
-    :gen_server.start_link __MODULE__, nil, []
+    :gen_server.start_link(__MODULE__, nil, [])  # nimic ca stare
   end
-  def deliver_page(pid, ref, page) do
+  def deliver_page(pid, ref, page) do  # semnal pt a incepe numararea paginilor
     :gen_server.cast pid, {:deliver_page, ref, page}
   end
 ```
@@ -1602,13 +1608,13 @@ La primirea unei pagini:
 ```
   # implementare
   def handle_cast({:deliver_page, ref, page}, state) do
-*    Parser.request_page(self)
+*   Parser.request_page(self)  # pas 1
 
     words = String.split(page)
     counts = Enum.reduce words, HashDict.new, fn(word, counts) ->
-        Dict.update(counts, word, 1, &(&1 + 1))
+*       Dict.update(counts, word, 1, &(&1 + 1))  # pas 2
       end
-*    Accumulator.deliver_counts(ref, counts)
+*   Accumulator.deliver_counts(ref, counts)  # pas 3
     {:noreply, state}
   end
 
@@ -1659,10 +1665,10 @@ defmodule Accumulator do
 
   def start_link do
     :gen_server.start_link({:global, :wc_accumulator}, __MODULE__,
-      {HashDict.new, HashSet.new}, [])
+      {HashDict.new, HashSet.new}, [])  # initial, niciun cuvant numarat si nicio pagina procesata
   end
 
-  # primeste pagina impreuna cu dictionarul de aparitii
+  # primeste pagina (identificata de ref) impreuna cu dictionarul de aparitii
   def deliver_counts(ref, counts) do
     :gen_server.cast {:global, :wc_accumulator}, {:deliver_counts, ref, counts}
   end
@@ -1673,37 +1679,34 @@ defmodule Accumulator do
 
 
 La primirea unui dictionar de aparitii `counts`:
-1. verifica sa nu fi procesat deja pagina `ref`
+1. verifica sa nu fi procesat deja pagina identificata de `ref`
 
 --
 2. aduna aparitiile din dictionar `count` la cele cunoscute `totals`
 
 --
-3. marcheaza pagina `ref` ca procesata
+3. marcheaza pagina identif. de `ref` ca procesata
 
 --
-4. notifica parserul ca pagina `ref` a fost procesata
+4. notifica parserul ca pagina identif. de `ref` a fost procesata
 
 --
 
 ```
 def handle_cast({:deliver_counts, ref, counts}, {totals, processed_pages}) do
-*  if Set.member? processed_pages, ref do
+* if Set.member? processed_pages, ref do  # pas 1
     {:noreply, {totals, processed_pages}}  # nu schimba nimic
 ```
 --
 ```
   else
-    new_totals = Dict.merge(totals, counts, fn(_k, v1, v2) -> v1 + v2 end)
-    new_processed_pages = Set.put processed_pages, ref
-*    Parser.processed ref
+*   new_totals = Dict.merge(totals, counts, fn(_k, v1, v2) -> v1 + v2 end)  # pas 2
+*   new_processed_pages = Set.put processed_pages, ref  # pas 3
+*   Parser.processed ref  # pas 4
     {:noreply, {new_totals, new_processed_pages}}
   end
 end
 ```
---
-
-
 
 ---
 ## Parser
@@ -1742,7 +1745,7 @@ Elemente stare:
 # initializare
 def init(filename) do
   xml_parser = Pages.start_link(filename)
-  {:ok, {ListDict.new, xml_parser}}
+  {:ok, {ListDict.new, xml_parser}}  # initial, nicio pagina nu este pending
 end
 
 # trimite pagina catre Counter si actualizeaza lista pending
@@ -1761,6 +1764,8 @@ end
 ---
 ## Parser
 
+Trimite pagina catre `Counter` si inregistreaz-o in `pending`:
+
 ```
 defp deliver_page(pid, pending, page) do
   ref = make_ref()
@@ -1770,9 +1775,11 @@ end
 ```
 
 --
-Trimite pagina catre `Counter` si inregistreaz-o in `pending`
 
---
+Daca `page` este `nil` inseamna ca am terminat de parcurs dump-ul:
+
+ia cel mai veche `ref` din `pending` si trimite-l catre `Counter`
+
 ```
 defp deliver_page(pid, pending, page) when nil?(page) do
   if Enum.empty?(pending) do
@@ -1785,10 +1792,22 @@ defp deliver_page(pid, pending, page) when nil?(page) do
 end
 ```
 
---
-`page` este `nil` inseamna ca am terminat de parcurs dump-ul Wikipedia:
+---
+## Avantajul
 
-Ia cel mai veche `ref` din `pending` si trimite-l catre `Counter`
+Cand am terminat de parsat, de ce retrimitem pagini ramase `pending`?
+
+--
+
+Inseamna ca mesajul cu pagina nu a ajuns la `Counter`, sau ca mesajul acestuia nu s-a intors.
+
+--
+
+Trimitem pagina unui nou `Counter`. Nu vom numara de doua ori paginile pt ca `Accumulator` accepta actualizari doar pt pagini neprocesate deja.
+
+--
+
+Astfel, sistemul devine robust la defecte de proiectare/hardware/de retea cu oricare `Counter`: supervizorul le va reporni si paginile neprocesate vor fi re-trimise.
 
 ---
 template: inverse
@@ -1816,12 +1835,17 @@ class: iterative-header-slide
 
 Altereaza atat ponderile cat si structura retelei, incercand sa gaseasca un echilibru intre fitness-ul solutiilor evoluate si diversitatea acestora.
 
+![evolution](img/evolution.svg)
 
---
+---
+class: iterative-header-slide
 
-**Exemplu aplicatie**: Simulator banc de pesti. Evolueaza reteaua sa se comporte precum un grup de pesti, fugind de un rechin.
+## exemplu aplicatie
+
+Simulator banc de pesti. Evolueaza reteaua sa se comporte precum un grup de pesti, fugind de un rechin.
 Fitness-ul este bazat pe cat de mult pot pestii sa ii supravietuiasca rechinului.
 
+![fish](img/fish.svg)
 
 ---
 class: iterative-header-slide
@@ -1831,7 +1855,6 @@ class: iterative-header-slide
 .footnote[sursa: [implementare de Stuart Hunt](https://gitlab.com/onnoowl/Neat-Ex)]
 
 TODO: https://gitlab.com/onnoowl/Neat-Ex/blob/master/lib/backprop/backprop.ex
-
 
 ---
 class: iterative-header-slide
