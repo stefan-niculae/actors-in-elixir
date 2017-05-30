@@ -1,0 +1,1841 @@
+
+layout: true
+name: inverse
+class: center, middle, inverse
+
+---
+name: first
+layout: false
+class: center, middle
+count: false
+
+# Actori in Elixir
+## Ștefan Niculae, Andreea-Daniela Ene
+
+.bottom[
+31 mai 2017 | Proiect ICLP | FMI UB
+]
+
+---
+name: agenda
+layout: false
+class: center
+count: false
+
+# Agenda
+1. Actori
+2. Elixir
+3. Exemple practice
+4. Studiu de caz
+
+
+
+---
+template: inverse
+count: false
+
+# .section-number[I.] Actori
+
+---
+layout: true
+name: actors
+
+## Actori
+
+---
+template: actors
+class: iterative-header-slide
+
+## model computational
+
+.footnote[sursa: [interviu Hewitt, Meijer and Szyperski](https://www.youtube.com/watch?v=1zVdhDx7Tbs)]
+
+<def>Actor</def> unitatea fundamentala de computatie.
+
+--
+
+Laturi esentiale:
+
+- procesare
+- stocare
+- comunicare
+
+---
+template: actors
+class: iterative-header-slide
+
+## model computational
+
+Fiecare actor are o _adresa_ si un _mailbox_.
+
+--
+
+Un actor poate trimite mesaje altuia. Cand isi trimite siesi se numeste recursie.
+
+--
+
+Cand un actor primeste un mesaj, el poate:
+
+- creea alti actori
+- trimite mesaje actorilor cunoscuti
+- defini ce face cu urmatorul mesaj
+
+
+---
+class: iterative-header-slide
+
+## model computational
+
+- Programare functionala: evita stare mutabila.
+
+  Programare cu actori: mentine stare mutabila dar nu o partajeaza.
+
+--
+
+- Model computational *configuration-based* in loc de *state-machine*. Un mesaj *se duce*, nu ajunge instant dintr-o stare in alta.
+
+  Mai fidel unui model fizic decat unuia algebric.
+
+--
+
+- Modelul Turing: *nedeterminism bounded*.
+
+  Modelul cu Actori: *indeterminism unbounded* — un request poate lua oricat timp sa ajunga la server, *arbitrul* sa il aleaga si sa se intoarca raspunsul.
+
+---
+class: iterative-header-slide
+
+## model computational
+
+Mesajele sunt trimise direct, nu printr-un canal, eliminand overhead-ul.
+
+--
+
+Nu este garantata pastrarea ordinii trimiterii mesajelor la primire.
+
+--
+
+Sincronizarea este condusa de faptul ca mesajele sunt procesate cate unul.
+
+
+---
+class: iterative-header-slide
+
+## in Elixir
+
+<def>Actor</def> process
+
+--
+
+<def>Adresa</def> PID (process identifier)
+
+--
+
+<def>Mesaj</def> tuplu  `{:set, "Popescu", 500}`
+
+--
+
+<def>Mailbox</def> coada
+
+
+
+---
+template: inverse
+count: false
+
+# .section-number[II.] Elixir
+
+---
+layout: true
+name: elixir
+
+## Elixir
+
+---
+template: elixir
+class: iterative-header-slide
+
+## despre limbaj
+
+- aparut in 2011
+
+--
+- construit peste Erlang
+  - compileaza in bytecode pt Erlang Virtual Machine (BEAM)
+
+--
+- limbaj functional
+  - functii ca first class citizen
+  - accent pe recursie si higher-order functions
+  - variabile imutabile
+
+--
+- tipuri dinamice (inferenta la runtime)
+- orientat-proces
+
+--
+- lightweight concurrency
+- message passing
+
+--
+- gandit pt scalare — tolerant la erori
+
+--
+- utilizator important: _Pinterest_
+
+---
+class: iterative-header-slide
+
+## sintaxa
+
+TODO: expresii, `end`, comentarii `#`
+
+
+
+---
+class: iterative-header-slide
+
+## tipuri
+
+.footnote[sursa: [documentatie Elixir](https://elixir-lang.org/getting-started/introduction.html)]
+
+```elixir
+5            # int
+2.0          # float
+true         # boolean
+:symb        # atom
+"str"        # string
+["a", 1, 2]  # lista
+{:a, 5.2}    # tuplu
+nil          # valoare nula
+~r/[a-z]/i   # regex
+```
+--
+```
+# keyword list
+> dict = [cheie: "valoare", secret: 123]
+> dict[:secret]
+123
+```
+--
+```
+# map
+> map = %{"a" => true, 102 => false}  # cheia poate fi orice tip
+> map[102]
+false
+```
+
+---
+class: iterative-header-slide
+
+## operatori
+
+```elixir
+# aritmetici
+> 1 + 2
+3
+> 7 / 2
+3.5  # mereu float, pt trunchiere, exista functiile div si rem
+```
+--
+```
+# comparare
+> 0 <= 1
+true
+> 0 == 1
+false
+```
+--
+```
+# logici
+> true or 0/0 == 0  # scurtcircuitare
+true
+```
+
+
+---
+class: iterative-header-slide
+
+## operatori
+
+```elixir
+# pe string-uri
+> "abc {:def}"  # interpolare
+"abc def"
+> "he" <> "llo"
+"hello"
+> "Hello" =~ ~r/[a-z]/i  # regex match
+true
+```
+--
+```
+# pe liste
+> [1, 2] ++ [3]
+[1, 2, 3]
+> [1, 2, 3] -- [2]
+[1, 3]
+```
+
+---
+class: iterative-header-slide
+
+## variabile
+
+TODO: incep cu litera mica?, `_` pt unused
+
+```elixir
+# refolosire
+> var = 2
+2
+> var = 3
+3
+```
+--
+```
+# ; sau newline delimiteaza expresii
+> y = 10; x+y
+13
+```
+
+???
+_ ca in Haskell/altele
+
+---
+class: iterative-header-slide
+
+## pattern matching
+
+Operatorul `=`
+
+```elixir
+> x = 1
+1
+> x
+1
+```
+--
+```
+# variabile
+> 1 = x
+1
+> 2 = x
+MatchError
+```
+--
+```
+# tupluri
+> {a, b, c} = {:hello, "world", 42}
+> a
+:hello
+> b
+"world"
+> {a, b, c} = {:hello, "world"}
+MatchError
+```
+
+---
+class: iterative-header-slide
+
+## pattern matching
+
+Operatorul `=`
+
+```
+# liste
+> [a, b, c] = [1, 2, 3]
+> a
+1
+```
+--
+```
+> [head | tail] = [1, 2, 3]
+> head
+1
+```
+
+---
+class: iterative-header-slide
+
+## pattern matching
+
+Operatorul pin `^`
+
+```elixir
+> x = 1
+> ^x = 2
+MatchError
+```
+--
+```
+> {y, ^x} = {2, 1}  # transformat in {y, 1} = {2, 1}
+> y
+2
+> {y, ^x} = {2, 2}  # transformat in {y, 1} = {2, 2}
+MatchError
+```
+--
+`^x` in loc sa ii lege `x` valoarea din partea dreapta, foloseste valoarea existenta a lui `x` pt a face matching.
+
+---
+class: iterative-header-slide
+
+## branching
+
+```elixir
+# case (haskell: case .. of ..)
+case {1, 2, 3} do
+  {1, x, 3} when x > 0 -> "match-uiteste"
+   _                   -> "otherwise"
+end
+```
+--
+```
+# functie anonima
+f = fn
+  x, y when x > 0 -> x + y
+  x, y            -> x * y
+end
+```
+--
+```
+# cond (multiple if, else if)
+cond do
+  0 == 1 -> "nu match-uiteste"
+  5 < 77 -> "aici da"
+end
+```
+
+---
+class: iterative-header-slide
+
+## branching
+
+```
+# if
+if nil do
+  "niciodata"
+else
+  "aici"
+end
+```
+--
+```
+# ca functie
+if true, do: 5, else: :altceva
+```
+
+---
+class: iterative-header-slide
+
+## functii
+
+Identificate dupa nume si aritate, grupate intr-un modul.
+
+TODO: modulele incep cu litera mare, nu trebuie sa coincida cu numele fisierului?
+
+```elixir
+defmodule Modul do
+  def sum(a, b) do
+    a + b
+  end
+
+  defp private(x \\ "default") do  # functie privata, argument implicit
+    x <> "!"
+  end
+
+  def zero?(0), do: true  # pattern matching, keyword list form
+  def zero?(x) when is_integer(x), do: false  # guard
+end
+```
+--
+```
+> Modul.sum(2, 3)     #=> 5
+> Modul.private("a")  #=> UndefinedFunctionError
+```
+--
+```
+# functie anonima
+> f = &(&1 * &2)
+> f.(2, 3)            #=> 6
+```
+
+---
+class: iterative-header-slide
+
+## enumerabile
+
+```elixir
+# list comprehension, in Haskell: [n^2 | n <- [1..5], odd n]
+> for n <- [1, 2, 3, 4, 5], rem(n, 2) == 1, do: n*n
+[1, 9, 25]
+```
+--
+```
+> odd? = &(rem(&1, 2) != 0)
+# range, pipe, higher order functions
+> 1..100_000 |> Enum.map(&(&1 * 3)) |> Enum.filter(odd?) |> Enum.sum
+7500000000
+```
+--
+```
+# numerele pitagoreice, ie: {a, b, c} aî a^2 + b^2 = c^2
+> def pythagorean(n) when n > 0 do
+    # list comprehension
+    for a &lt;- 1..n,  # produs cartezian [1..n]^3
+        b &lt;- 1..n,
+        c &lt;- 1..n,
+        a + b + c <= n,  # doua filtre
+        a*a + b*b == c*c,
+        do: {a, b, c}
+  end
+```
+--
+Functiile din modulul `Enum` sunt eager. Modulul `Stream` are echivalentele lor in varianta lazy.
+
+???
+Lazy ca in Haskell
+
+---
+class: iterative-header-slide
+
+## procese
+
+Izolate, ruleaza concurent, comunica prin mesaje.
+
+--
+
+Foarte lightweight — consuma putine resurse si au timp de pornire mic (mai usoare decat thread-urile din alte limbaje).
+
+???
+Lightweight ca in Erlang
+
+--
+```elixir
+> pid = spawn fn -> 1 + 2 end  # proces ruleaza o functie
+PID<0.100.0>  # returneaza pid-ul
+
+> Process.alive?(pid)
+false  # a terminat deja de rulat 1 + 2
+```
+
+---
+class: iterative-header-slide
+
+## procese
+
+```
+> send self, {:hello, "fmi"}  # trimite un mesaj siesi
+> send self, {:hello, "ub"}   # pune in continuare in mailbox
+```
+--
+```
+> receive do  # citeste primul mesaj din mailbox
+    {:hello, name} -> "salut, #{name}"
+    {:bye,   name} -> "nu match-uieste"
+  after
+    3_000 -> "nimic dupa 3s"
+  end
+"salut, fmi"
+```
+--
+```
+> flush  # goleste mailbox-ul si printeaza mesajele
+{:hello, "ub"}
+:ok
+```
+
+???
+functia `send` in loc de `Pid ! Message` din Erlang
+
+---
+class: iterative-header-slide
+
+## procese
+
+Este in regula ca procesele sa esueze.
+
+Ne asteptam ca supervizorii sa se ocupe de restartarea lor.
+
+--
+
+Legam un supervizor prin primitiva `spawn_link/0`.
+
+--
+
+```elixir
+# ii setam procesului ca supervizor shell-ul
+> spawn_link fn -> raise "eroare" end
+PID<0.77.0>
+RuntimeError eroare (from PID<0.77.0>)
+```
+
+???
+similar cu `link` si monitoarele din Erlang
+
+---
+class: iterative-header-slide
+exclude: true
+
+## stare
+
+Un proces care ruleaza permanent cu `loop`.
+
+*Starea* este un dictionar pasat prin argumente.
+
+Operatiile de citire/scriere sunt tratate de mesaje ce incep cu `:get` / `:set`.
+
+--
+exclude: true
+
+```elixir
+# kv.exs
+defmodule KV do  # KeyValue
+  @doc "dictionar cheie-valoare"
+
+  def start_link do
+    start_link(fn -> loop(%{}) end) # incepem cu un dictionar gol
+  end
+
+  defp loop(map) do
+    receive do
+      {:get, key, caller} ->
+        send caller, Map.get(map, key)  # raspundem apelantului
+        loop(map)                       # continuam sa asteptam mesaje
+      {:put, key, value} ->
+        loop(Map.put(map, key, value))  # actualizam modificand argumentul
+    end
+  end
+end
+```
+
+---
+class: iterative-header-slide
+exclude: true
+
+## stare
+
+```elixir
+$ ies kv.exs  # executam interactiv, similar cu ghci
+> {:ok, pid} = KV.start_link
+
+> send pid, {:get, :inexistent, self}
+> flush
+nil  # cheia nu a existat in dictionar
+
+> send pid, {:put, :cheie, "valoare"}
+> send pid, {:get, :cheie, self}
+> flush
+"valoare"  # ce am pus anterior la :cheie
+
+> Process.register(pid, :kv)  # putem numi procesul
+> send :kv, {:put, :cheie, "valoare"}  # nu mai este nevoie sa stim pid-ul
+```
+
+--
+exclude: true
+
+**Agent** = abstractie pentru stare.
+
+---
+class: iterative-header-slide
+
+## structuri
+
+```elixir
+defmodule User do  # numele structurii
+  defstruct nume: "Ana", ani: 23  # valori implicite
+end
+```
+--
+```
+> %User{}  # valorile implicite
+%User{nume: "Ana", ani: 23}
+> %User{nume: "Bogdan"}
+%User{nume: "Bogdan", ani: 30}
+```
+--
+```
+> %User{inexistent: 7}
+KeyError
+```
+--
+```
+> cristi = %User{nume: "Cristi", ani: 40}
+> cristi.name  # accesare
+"Cristi"
+> dan = %{cristi | nume: "dan"}  # actualizare (copiere din cauza imutabilitatii)
+%User{nume: "Dan", ani: 40}
+```
+
+---
+class: iterative-header-slide
+
+## structuri
+
+```elixir
+defmodule Struct do
+  @enforce_keys [:obligatorie]
+  defstruct [:obligatorie, :optionala]
+end
+```
+--
+```
+> %Struct{}  # nu am pus argumentul obligatoriu
+ArgumentError :obligatorie must be given
+```
+--
+```
+> %Struct{obligatorie: 5}  # valoare implicita pt un argument optional este nil
+%Struct{obligatorie: 5, optionala: nil}
+```
+
+---
+class: iterative-header-slide
+
+## protocoale
+
+Mecanism de polimorfism.
+
+
+```elixir
+defprotocol Mergator do
+  def nr_picioare(data)
+```
+--
+```
+defimpl Mergator, for: Pers do
+  def nr_picioare(pers), do: 2
+```
+--
+```
+defimpl Mergator, for: Catel do
+  # nr_picioare neimplementat, vom primi warning
+```
+--
+```
+defimpl Mergator, for: Any do
+  def nr_picioare(_), do: 0  # implicit, zero picioare
+```
+--
+```
+defmodule Sarpe do
+  @derive[Mergator]  # fallback, ii este suficienta implementarea cu zero
+  defstruct [:nume, :lungime]
+```
+
+---
+class: iterative-header-slide
+
+## protocoale
+
+```elixir
+> pers  = %Pers{ani: 23, nume: "Ana"}
+> catel = %Catel{cuminte: true, nume: "Rex"}
+> sarpe = %Sarpe{lungime: nil, nume: nil}
+```
+--
+```
+> Mergator.nr_picioare(pers)   # => 2
+> Mergator.nr_picioare(catel)  # => UndefinedFunctionError
+> Mergator.nr_picioare(sarpe)  # => 0
+```
+--
+`Enum` functioneaza pe orice implementeaza protocolul `Enumerable`.
+
+--
+
+Se pot defini implementari pt tipurile implicite: `BitString`, `Tuple`, `Map` etc.
+
+
+---
+class: iterative-header-slide
+
+## erori
+
+Trei mecanisme de eroare:
+
+- `error` — situatii exceptionale
+- `throw` — controlul executiei
+- `exit` — terminare proces
+
+--
+
+`try/catch` si `try/rescue` nu sunt foarte comune. In loc de recuperarea unei erori, preferam sa "esuam rapid" — arborele de supervizare se va ocupa de redresare.
+
+--
+
+```elixir
+> :foo + 1  # adunare atom cu numar
+ArithmeticError  # eroare, sau exceptie
+```
+--
+```
+> raise "oops"  # invocare exceptie manual
+RuntimeError oops
+```
+
+---
+class: iterative-header-slide
+
+## erori
+
+```
+> defmodule Eroare do  # tip custom de eroare
+    defexception message: "mesaj implicit"
+  end
+> raise Eroare
+Eroare mesaj implicit
+```
+--
+```
+> try do
+    raise "oops"
+  rescue
+    RuntimeError -> "eroare!"
+ end
+"eroare!"
+```
+--
+```
+> case File.read "date.txt" do
+    {:ok, continut} -> IO.puts "Success: #{continut}"
+    {:error, motiv} -> IO.puts "Eroare: #{motiv}"
+  end
+Eroare: enoent  # no entry
+```
+--
+```
+> File.read! "sigur-exista.txt"  # cand lipsa fisierului este o eraore
+File.Error
+```
+
+---
+class: iterative-header-slide
+
+## erori
+
+```
+> try do
+    Enum.each -50..50, fn(x) ->
+       if rem(x, 13) == 0, do: throw(x)
+    end
+  catch
+     x -> "am prins #{x}"
+   after  # optional
+     IO.puts "executat indiferent de erori"
+  end
+"executat indiferent de erori"
+"am prins -39"
+
+> exit :normal
+```
+--
+In interiorul unei functii, corpul este automat imbracat intr-un `try` daca exista `after`, `rescue` sau `catch`.
+
+
+---
+class: iterative-header-slide
+
+## typespec
+
+Declararea tipurilor in semnaturile functiilor si definirea tipurilor custom.
+
+Definim un calculator ce intoarce pe langa rezultatul calculului si un comentariu.
+
+???
+Similar cu `type`/`newtype` din Haskell
+
+--
+
+```elixir
+defmodule CalculatorObraznic do
+  # definim un tip nou
+  @typedoc "Numar urmat de un string"
+  @type nr_cu_comentariu :: {number, String.t}
+```
+--
+```
+  # specificam tipurile argumentelor si cel de intoarcere
+  @spec add(number, number) :: nr_cu_comentariu
+  def add(a, b), do: {a + b, "pt asta aveai nevoie de calculator?"}
+```
+--
+```
+  @spec multiply(number, number) :: nr_cu_comentariu
+  def mul(a, b), do: {a * b, "puteai folosi adunarea pt asta..."}
+end
+```
+
+
+---
+class: iterative-header-slide
+
+## topici avansate
+
+Atribute:
+
+  - constante statice ale structurilor
+  - documentatie
+
+--
+
+Meta programare:
+
+  - `macro` — extindere limbaj, permite manipularea directa a AST
+  - `DSL` (Domain Specific Language) — implementare API pt un caz aparte
+
+
+---
+template: inverse
+count: false
+
+# .section-number[III.] Exemple practice
+### din Seven Concurrency Models in Seven Weeks
+
+---
+layout: true
+name: basics
+
+## Basics
+
+---
+template: basics
+class: iterative-header-slide
+
+## mesaje si mailbox
+
+Mesajele trimise asincron. În loc să fie trimise direct unui actor, sunt aşezate într-un *mailbox*.
+
+Actorii rulează în acelaşi timp, dar sunt prelucraţi secvenţial.
+
+--
+
+```elixir
+defmodule Talker do
+  def loop do
+    receive do  # asteptare
+      {:salut, name}           -> IO.puts "Bună, #{name}"
+      {:aniversare, name, age} -> IO.puts "#{name} a împlinit #{age} ani"
+      {:shutdown} -> exit :normal  # oprire proces
+    end
+    loop
+  end
+end
+```
+--
+```
+receive do
+  # detectia opririi procesului
+  {:EXIT, ^pid, reason} -> IO.puts "Talker has exited, #{reason}"
+end
+```
+
+---
+template: basics
+class: iterative-header-slide
+
+## mesaje si mailbox
+
+```elixir
+> Process.flag(:trap_exit, true)
+> pid = spawn &Talker.loop/0           # pornire proces
+```
+--
+```
+# trimitere mesaje
+> send pid, {:salut, "Maria"}          # Bună, Maria
+> send pid, {:aniversare, "Ana", 16}   # Ana a implinit 16 ani
+> send pid, {:shutdown}                # Talker has exited, normal
+```
+
+Pattern matching pe structura si continutul mesajului trimis
+
+
+---
+class: iterative-header-slide
+
+## stare
+
+Mentinem starea prin argumente si tail recursion.
+
+--
+
+```elixir
+defmodule Counter do
+  def loop(count) do
+    receive do
+      {:next} ->
+        IO.puts "Număr curent: #{count}"
+        loop(count + 1)
+    end
+   end
+end
+```
+--
+```
+> counter = spawn Counter, :loop, [1] # modul, functie, argument(e)
+> send counter, {:next}               # Număr curent: 1
+> send counter, {:next}               # Număr curent: 2
+```
+
+Pastrare stare intre apeluri
+
+
+---
+class: iterative-header-slide
+
+## API
+
+`Process.register(pid, :atom)` face cunoscut un `pid` ca un `:atom` global, pentru a putea ii putea trimite alte procese mesaje doar prin `:atom`.
+
+--
+
+Imbracam functionaliteatea intr-un API: `start/1` si `next/0`.
+
+--
+
+```elixir
+defmodule Counter do
+  def start(k) do
+    pid = spawn __MODULE__, :loop, [k]  # __MODULE__ expandeaza in Counter
+    Process.register pid, :counter      # numim actorul :counter
+  end
+```
+--
+```
+  def next do
+    ref = make_ref()                    # creeaza o referinta unica
+    send :counter, {:next, self, ref}   # trimite lui :counter semnalul :next
+    receive do
+      {:ok, ^ref, count} -> count       # primim inapoi count-ul curent
+    end
+  end
+```
+
+---
+class: iterative-header-slide
+
+## API
+
+```
+  def loop(count) do
+    receive do
+      {:next, sender, ref} ->           # asteapta sa vina un mesaj cu tipul :next
+        send sender, {:ok, ref, count}  # ii trimitem inapoi count-ul curent
+        loop(count + 1)                 # incrementeaza count pt urmatorul apel
+    end
+  end
+end  # Counter
+```
+--
+```elixir
+> Counter.start(42)
+> Counter.next  # 42
+> Counter.next  # 43
+```
+
+Pastrare stare intre apeluri
+
+
+---
+class: iterative-header-slide
+
+## map paralel
+
+Pornim un proces pt fiecare element.
+
+--
+
+```elixir
+defmodule Parallel do
+  def map(collection, fun) do
+    parent = self  # cui vor trimite workerii inapoi
+
+    # crează câte un proces pentru fiecare element din colecţie
+    processes = Enum.map collection, fn(e) ->
+        spawn_link fn ->
+            send parent, {self, fun.(e)}
+          end
+      end
+```
+--
+```
+    # aşteaptă fiecare rezultat
+    Enum.map processes, fn(pid) ->
+        receive do
+          {^pid, result} -> result
+        end
+      end
+  end
+end
+```
+
+---
+class: iterative-header-slide
+
+## map paralel
+
+```elixir
+slow_double = fn(x) -> :timer.sleep(1000); x * 2 end
+```
+--
+```
+> Enum.map     [1, 2, 3, 4], slow_double  # 4s
+```
+--
+```
+> Parallel.map [1, 2, 3, 4], slow_double  # 1s
+```
+
+Patru procese ruleaza simultan.
+
+---
+class: iterative-header-slide
+
+## reduce paralel
+
+Pornim cate un proces pt fiecare operatie de reducere, injumatatind de fiecare data lista de procesat — paralelism logaritmic.
+
+```elixir
+def reduce(collection, fun) do
+  len = length collection
+  if len == 1 do
+    # un singur element, il intoarcem
+    Enum.at collection, 0
+```
+
+---
+class: iterative-header-slide
+
+## reduce paralel
+
+```
+  else
+    parent = self()  # cui vor trimite workerii inapoi
+    {left_half, right_half} = Enum.split collection, round(len/2)
+
+    # asigneaza treaba worker-ilor pt jumatatea stanga si dreapta
+    processes = Enum.map [left_half, right_half], fn(half) ->
+      spawn_link fn ->
+        result = Parallel.reduce half, fun  # aplica recursie
+        send parent, {self(), result}
+      end
+    end
+```
+--
+```
+    # asteapta rezultatele
+    [left_result, right_result] = Enum.map processes, fn(process) ->
+      receive do
+        {^process, result} -> result
+      end
+    end
+```
+--
+```
+    # reduce cele doua rezultate intr-unul
+    fun.(left_result, right_result)
+  end
+end  # reduce/2
+```
+
+---
+class: iterative-header-slide
+
+## reduce paralel
+
+```elixir
+slow_add = fn(a, b) -> :timer.sleep(1000); a + b end  # trebuie sa fie asociativ
+```
+--
+
+```
+> Enum.reduce     [1, 2, 3, 4, 5, 6], slow_add  # 5s
+```
+
+Secvential - 5 timpi operatii: `1+2`, `2+3`, `3+4`, `4+5`, `5+6`
+
+--
+
+```
+> Parallel.reduce [1, 2, 3, 4, 5, 6], slow_add  # 3s
+```
+
+Paralel - log(5) = 3 timpi operatii:
+ - `1+2`, `4+5`
+ - `(1+2)+3`, `(4+5)+6`
+ - `[(1+2)+3]` + `[(4+5)+6]`
+
+
+
+---
+template: inverse
+count: false
+
+# Toleranta la defecte
+
+---
+layout: true
+name: fault-tolerance
+
+## Fault tolerance
+
+---
+template: fault-tolerance
+class: iterative-header-slide
+
+## cache
+
+Modul care cache-uieste pagini web:
+
+- `put` trimitem un url impreuna cu continutul paginii pentru stocare
+- `get` consultam cache-ul pt un url
+- `size` verificam dimensiunea cache-ului
+
+--
+
+```
+def put(url, page) do
+  send :cache, {:put, url, page}
+```
+--
+```
+def get(url) do
+  ref = make_ref()
+  send :cache, {:get, self, ref, url}
+  receive do
+    {:ok, ^ref, page} -> page
+  end
+```
+--
+```
+def size do
+  ref = make_ref()
+  send :cache, {:size, self, ref}
+  receive do
+    {:ok, ^ref, s} -> s
+  end
+```
+
+---
+class: iterative-header-slide
+
+## cache
+
+```
+def loop(pages, size) do
+  receive do
+    {:put, url, page} ->
+      new_pages = Map.put pages, url, page
+      new_size = size + byte_size page
+      loop new_pages, new_size
+```
+--
+```
+    {:get, sender, ref, url} ->
+      send sender, {:ok, ref, pages[url]}
+      loop pages, size
+```
+--
+```
+    {:size, sender, ref} ->
+      send sender, {:ok, ref, size}
+      loop pages, size
+  end
+end
+```
+
+---
+class: iterative-header-slide
+
+## cache
+
+Folosire normala:
+
+```elixir
+> Cache.put "google.com", "Search the Web"  #=> {:put, "google.com", "Search the Web"}
+> Cache.get "google.com"                    #=> "Search the Web"
+> Cache.size                                #=> 14
+> Cache.get "unibuc.ro"                     #=> nil - nu am pus nimic la adresa asta
+```
+
+--
+
+Folosire anormala:
+
+```elixir
+> Cache.put "unibuc.ro", nil  # al doilea argument ar trebui sa fie string
+EXIT from PID<...>
+  ArgumentError
+```
+
+--
+
+Nu am scris niciun cod pt verificarea argumentelor.
+
+--
+
+Separam tratarea argumentelor intr-un proces separat, **supervizor**.
+
+
+---
+class: iterative-header-slide
+
+## supervizare
+
+Despre legare:
+
+- Doua procese pot fi legate prin `Process.link(pid)`.
+
+--
+
+- Cand oricare se termina neasteptat, ambele se opresc.
+
+--
+
+- Cand unul dintre ele se termina normal (`exit :normal`), procesul legat nu se incheie.
+
+--
+
+- Prin `Process.flag(:trap_exit true)`, la terminare anormala, procesul legat va fi doar notificat.
+
+---
+class: iterative-header-slide
+
+## supervizare
+
+
+```elixir
+defmodule Cache do
+  def start_link do
+    pid = spawn_link __MODULE__, :loop, [Map.new, 0]
+    Process.register pid, :cache
+    pid
+  end
+```
+--
+```
+  # ... put/2, get/1 size/0
+```
+--
+```
+  def terminate do
+    send :cache, {:terminate}
+  end
+```
+--
+```
+  def loop(pages, size) do
+    receive do
+      # ... :put, :get, :size
+      {:terminate} -> exit :normal
+    end
+  end
+end
+```
+
+---
+class: iterative-header-slide
+
+## supervizare
+
+Definim un supervizor care restarteaza actorul `Cache` in caz de esuare:
+
+--
+
+```elixir
+defmodule CacheSupervisor do
+  def start do
+    spawn __MODULE__, :loop_system, []
+```
+--
+```
+  def loop do
+    pid = Cache.start_link
+    receive do
+      {:EXIT, ^pid, :normal} ->
+        IO.puts "cache s-a terminal normal - inchidere"
+        :ok
+```
+--
+```
+      {:EXIT, ^pid, reason} ->
+        IO.puts "cache a esuat cu motivul #{inspect reason} - restartam"
+        loop
+```
+--
+```
+  def loop_system do
+    Process.flag :trap_exit, true  # setam flag-ul de supervizare
+    loop
+```
+
+---
+class: iterative-header-slide
+exclude: true
+
+## supervizare
+
+Caz special:
+
+1. procesul A trimite mesaj `:put` cache-ului
+2. procesul B trimite mesaj `:get` cache-ului
+3. Cache-ul crash-uieste la procesarea mesajului A
+4. Supervizoul reporneste cache-ul dar mesajul B este pierdut
+5. Procesul B este in deadlock — asteapta un raspuns care nu va ajunge niciodata
+
+--
+exclude: true
+
+Solutie — adaugam un timeout la metodele `get` si `size`:
+
+```elixir
+def get(url) do
+  ref = make_ref()
+  send(:cache, {:get, self, ref, url})
+  receive do
+    {:ok, ^ref, page} -> page
+    after 1000        -> nil  # timeout
+end
+```
+
+
+---
+class: iterative-header-slide
+
+## error kernel
+
+> Există doua moduri de face designul unui software,
+> il poti face atat de simplu incat sa fie evident ca nu exista greseli,
+> sau il poti face atat de complicat incat sa nu existe greseli evidente.
+> — Tony Hoare
+
+--
+
+<def>Error kernel</def>partea care trebuie sa fie corecta pt ca intregul sistem sa functioneze corect.
+
+--
+
+Ideal cat mai mic si simplu cu putinta — atat de simplu incat sa fie evident ca nu exista greseli.
+
+--
+
+Ierarhie de error-kernel-uri implementata prin supervizori in Elixir.
+
+
+---
+class: iterative-header-slide
+
+## error kernel
+
+Vrem o metoda care verifica daca un string contine doar majuscule:
+
+--
+
+```elixir
+def all_upper?(s) do
+  String.upcase(s) == s
+end
+```
+
+--
+
+Ce facem in caz ca pasam ca argument `nil`?
+
+--
+
+Intr-un stil de *programare defensiva*:
+
+```elixir
+def all_upper?(s) do
+  cond do
+    nil?(s) -> false
+    true    -> String.upcase(s) == s
+  end
+end
+```
+
+--
+
+Acum tratam si cazul `nil`.
+
+--
+
+Dar daca pasam keyword? Probabil codul care face asta are un bug si in felul asta noi l-am mascat.
+
+---
+class: iterative-header-slide
+
+## error kernel
+
+In programarea cu actori, imbratisam filosofia _"let it crash"_, lasand supervizorul sa adreseze problema.
+
+--
+
+Beneficii:
+
+- codul este mai simplu si usor de inteles, separare intre functionarea normala si cea toleranta
+
+--
+
+- actorii sunt separati si nu impart aceeasi stare, prabusirea unuia neafectand alti actori
+
+--
+
+- pe langa rezolvarea erorii, supervizorul le poate si loga, dezvaluind bug-uri
+
+
+
+---
+template: inverse
+count: false
+
+# Scalare
+
+---
+layout: true
+name: scaling
+
+## Scalare
+
+---
+template: scaling
+class: iterative-header-slide
+
+## OTP
+
+TODO
+
+???
+din Erlang
+
+---
+class: iterative-header-slide
+
+## word counter
+
+Sistem ce numara de cate ori apar cuvintele pe paginile Wikipedia.
+
+--
+
+- va functiona pe mai multe core-uri
+- poate scala pe mai mult de o masina
+- redresare in caz de esec
+
+---
+class: iterative-header-slide
+
+## word counter
+
+Actori:
+- un `Parser`: parseaza un dump Wikipedia in pagini
+
+--
+- mai multi `Counter`: numara cuvintele dintr-o pagina
+
+--
+- un `Accumulator`: tine minte totalul cuvintelor pt toate paginile
+
+--
+
+
+Pasi procesare:
+1. un `Counter` cere o pagina de la `Parser`.
+
+--
+2. `Counter`-ul numara cuvintele din pagina si le trimite la `Accumulator`
+
+--
+3. `Accumulator`-ul transmite `Parser`-ului ca pagina a fost procesata
+
+---
+class: iterative-header-slide
+
+## word counter
+
+![word-counter-diagram](word-counter-diagram.svg)
+
+---
+layout: false
+## Counter
+
+```
+defmodule Counter do
+  use GenServer.Behaviour
+```
+--
+```
+  # API public
+  def start_link do
+    :gen_server.start_link __MODULE__, nil, []
+  end
+  def deliver_page(pid, ref, page) do
+    :gen_server.cast pid, {:deliver_page, ref, page}
+  end
+```
+--
+```
+  # initializare
+  def init(_args) do
+*    Parser.request_page(self)
+    {:ok, nil}
+  end
+```
+
+Pornim prin a cere o pagina de la `Parser`
+
+---
+## Counter
+
+La primirea unei pagini:
+1. cere o pagina noua (inainte de procesare pt minimizarea latentei)
+
+--
+2. numara cuvintele din pagina construind dictionarul `counts`
+
+--
+3. trimite dictionarul catre `Accumulator` impreuna cu `ref`-ul paginii
+
+
+--
+
+```
+  # implementare
+  def handle_cast({:deliver_page, ref, page}, state) do
+*    Parser.request_page(self)
+
+    words = String.split(page)
+    counts = Enum.reduce words, HashDict.new, fn(word, counts) ->
+        Dict.update(counts, word, 1, &(&1 + 1))
+      end
+*    Accumulator.deliver_counts(ref, counts)
+    {:noreply, state}
+  end
+
+end  # Counter
+```
+
+---
+## Counter
+
+Un supervizor restarteaza `Counter` in caz de esec
+
+```
+defmodule CounterSupervisor do
+  use Supervisor.Behaviour
+
+  def start_link(num_counters) do
+    :supervisor.start_link(__MODULE__, num_counters)
+  end
+
+  def init(num_counters) do
+
+    # instantiem workeri
+    workers = Enum.map 1..num_counters, fn(n) ->
+      worker(Counter, [], id: "counter#{n}")
+    end
+
+    # :one_for_one - cand esueaza un proces il repornim
+    # :one_for_all - cand esueaza un proces le repornim pe toate
+    supervise workers, strategy: :one_for_one
+  end
+end
+```
+
+---
+## Accumulator
+
+Elemente stare:
+- `totals`: dictionar continand numarul total de aparitii
+- `processed_pages`: multime continand referintele paginilor procesate
+
+--
+
+```
+defmodule Accumulator do
+  use GenServer.Behaviour
+
+  # API public
+
+  def start_link do
+    :gen_server.start_link({:global, :wc_accumulator}, __MODULE__,
+      {HashDict.new, HashSet.new}, [])
+  end
+
+  # primeste pagina impreuna cu dictionarul de aparitii
+  def deliver_counts(ref, counts) do
+    :gen_server.cast {:global, :wc_accumulator}, {:deliver_counts, ref, counts}
+  end
+```
+
+---
+## Accumulator
+
+
+La primirea unui dictionar de aparitii `counts`:
+1. verifica sa nu fi procesat deja pagina `ref`
+
+--
+2. aduna aparitiile din dictionar `count` la cele cunoscute `totals`
+
+--
+3. marcheaza pagina `ref` ca procesata
+
+--
+4. notifica parserul ca pagina `ref` a fost procesata
+
+--
+
+```
+def handle_cast({:deliver_counts, ref, counts}, {totals, processed_pages}) do
+*  if Set.member? processed_pages, ref do
+    {:noreply, {totals, processed_pages}}  # nu schimba nimic
+```
+--
+```
+  else
+    new_totals = Dict.merge(totals, counts, fn(_k, v1, v2) -> v1 + v2 end)
+    new_processed_pages = Set.put processed_pages, ref
+*    Parser.processed ref
+    {:noreply, {new_totals, new_processed_pages}}
+  end
+end
+```
+--
+
+
+
+---
+## Parser
+
+```
+defmodule Parser do
+  use GenServer.Behaviour
+
+  # API public
+
+  def start_link(filename) do
+    :gen_server.start_link({:global, :wc_parser}, __MODULE__, filename, [])
+  end
+
+  # apelat de Counter cand cere o pagina
+  def request_page(pid) do
+    :gen_server.cast {:global, :wc_parser}, {:request_page, pid}
+  end
+
+  # apelat de Accumulator cand a procesat o pagina
+  def processed(ref) do
+    :gen_server.cast {:global, :wc_parser}, {:processed, ref}
+  end
+```
+
+---
+## Parser
+
+Elemente stare:
+- `pending`: referinte ale paginilor trimise unui `Counter` dar neprocesate inca
+- `xml_parser`: parser din biblioteca Erlang pt dump-ul Wikipedia
+
+--
+
+```
+# initializare
+def init(filename) do
+  xml_parser = Pages.start_link(filename)
+  {:ok, {ListDict.new, xml_parser}}
+end
+
+# trimite pagina catre Counter si actualizeaza lista pending
+def handle_cast({:request_page, pid}, {pending, xml_parser}) do
+  new_pending = deliver_page(pid, pending, Pages.next(xml_parser))
+  {:noreply, {new_pending, xml_parser}}
+end
+
+# sterge pagina din lista de pending
+def handle_cast({:processed, ref}, {pending, xml_parser}) do
+  new_pending = Dict.delete pending, ref
+  {:noreply, {new_pending, xml_parser}}
+end
+```
+
+---
+## Parser
+
+```
+defp deliver_page(pid, pending, page) do
+  ref = make_ref()
+*  Counter.deliver_page pid, ref, page
+  Dict.put pending, ref, page
+end
+```
+
+--
+Trimite pagina catre `Counter` si inregistreaz-o in `pending`
+
+--
+```
+defp deliver_page(pid, pending, page) when nil?(page) do
+  if Enum.empty?(pending) do
+    pending  # gata: parsat toate paginile si trimis toate pending
+  else
+    {ref, prev_page} = List.last pending
+*    Counter.deliver_page pid, ref, prev_page
+    Dict.put(Dict.delete(pending, ref), ref, prev_page)
+  end
+end
+```
+
+--
+`page` este `nil` inseamna ca am terminat de parcurs dump-ul Wikipedia:
+
+Ia cel mai veche `ref` din `pending` si trimite-l catre `Counter`
+
+---
+template: inverse
+count: false
+
+# .section-number[IV.] Studiu de caz
+
+---
+layout: true
+name: scaling
+
+## NEAT
+
+---
+template: scaling
+class: iterative-header-slide
+
+## idee algoritm
+
+.footnote[sursa: [lucrare de K. Stanley si R. Miikkulainen](http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf)]
+
+<def>NEAT</def> NeuroEvolution of Augmenting Topologies — algoritm genetic pt generarea retelelor neurale evolutive.
+
+--
+
+Altereaza atat ponderile cat si structura retelei, incercand sa gaseasca un echilibru intre fitness-ul solutiilor evoluate si diversitatea acestora.
+
+
+--
+
+**Exemplu aplicatie**: Simulator banc de pesti. Evolueaza reteaua sa se comporte precum un grup de pesti, fugind de un rechin.
+Fitness-ul este bazat pe cat de mult pot pestii sa ii supravietuiasca rechinului.
+
+
+---
+class: iterative-header-slide
+
+## implementare backprop
+
+.footnote[sursa: [implementare de Stuart Hunt](https://gitlab.com/onnoowl/Neat-Ex)]
+
+TODO: https://gitlab.com/onnoowl/Neat-Ex/blob/master/lib/backprop/backprop.ex
+
+
+---
+class: iterative-header-slide
+
+## benchmark scalare
+
+TODO: 1, 2, 4, 8, 16, 32, 64, 128 threads

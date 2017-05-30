@@ -53,6 +53,9 @@ def {
   font-size: .7em;
   line-height: 140%;
 }
+.footnote {
+  font-size: .8em;
+}
 
 /* Misc classes */
 .red {
