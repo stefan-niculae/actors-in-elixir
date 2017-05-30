@@ -184,3 +184,12 @@ a {
 def::after {
   content: ' = '
 }
+
+.progress {
+  width: 25%;
+  height: 2px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: var(--faded-black);
+}
