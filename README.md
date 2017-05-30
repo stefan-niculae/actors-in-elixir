@@ -3,15 +3,11 @@ Presentation of Actors model, their implementation in Elixir and a case study
 
 Online: https://stefan1niculae.github.io/actors-in-elixir
 
-# TODO
-- compare to erlang: https://elixir-lang.org/crash-course.html
-- concluzii
-
-I   Actori
+1.   Actori
   - model programare
   - in elixir
 
-II  Elixir
+2.  Elixir
   - despre limbaj
 
   * Sintaxa
@@ -29,7 +25,7 @@ II  Elixir
     - typespec-uri
     - topici avansate
 
-III Exemple practice
+3. Exemple practice
   * Ziua 1 - basics
     - mesaje si mailbox
     - stare
@@ -46,7 +42,10 @@ III Exemple practice
   * Ziua 3 - scalare
     - OTP?
 
-IV  Case Study
+4.  Case Study
  - algoritm pe scurt
  - implementare backpropagation
  - benchmark scalare
+
+# TODO
+ - compare to erlang: https://elixir-lang.org/crash-course.html

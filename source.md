@@ -1646,7 +1646,6 @@ Aflare adresa de pe retea si trimitere mesaje distribuit:
 (nod1)> send pid, :next  # Număr curent: 25
 ```
 
-
 ---
 class: iterative-header-slide
 
@@ -1994,3 +1993,28 @@ class: iterative-header-slide
 ## benchmark scalare
 
 TODO: 1, 2, 4, 8, 16, 32, 64, 128 threads
+
+---
+template: inverse
+count: false
+
+# Concluzii
+
+---
+layout: false
+
+## Concluzii
+
+- un actor executa instructiuni secvential, nu isi partajeaza starea; concurenta intervine doar la pasarea de mesaje
+
+--
+
+- toleranta la erori si mentalitatea _let it crash_ conduce la programe mai robuste si cod mai clar
+
+--
+
+- Elixir permite implementarea programelor concurente cu usurinta
+
+--
+
+- biblioteca OTP pune la dispozitie unelte puternice, utile in programarea distribuita

@@ -54,13 +54,13 @@
         })
     })
 
-    var slides = document.getElementsByClassName('remark-slide-scaler')
+    var slides = document.getElementsByClassName('remark-slide-content')
 
     slides.forEach(function(slide, index) {
       var progress = document.createElement('span')
       progress.className += 'progress'
 
-      var percentage = index / (slides.length - 1)
+      var percentage = (index + 1) / (slides.length - 1)
       progress.style.width = percentage * 100 + '%'
 
       slide.appendChild(progress)
