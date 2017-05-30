@@ -190,10 +190,10 @@ class: iterative-header-slide
 - message passing
 
 --
-- Gandit pt scalare — tolerant la erori
+- gandit pt scalare — tolerant la erori
 
 --
-- Utilizator important: _Pinterest_
+- utilizator important: _Pinterest_
 
 
 ---
@@ -510,20 +510,21 @@ Lightweight ca in Erlang
 ```elixir
 > pid = spawn fn -> 1 + 2 end  # proces ruleaza o functie
 PID<0.100.0>  # returneaza pid-ul
+
 > Process.alive?(pid)
 false  # a terminat deja de rulat 1 + 2
 ```
---
-```
-> send self, {:hello, "fmi"}  # trimite un mesaj siesi
-> send self, {:hello, "ub"}   # pune in continuare in mailbox
-```
-
+    
 ---
 class: iterative-header-slide
 
 ## procese
 
+```
+> send self, {:hello, "fmi"}  # trimite un mesaj siesi
+> send self, {:hello, "ub"}   # pune in continuare in mailbox
+```
+--
 ```
 > receive do  # citeste primul mesaj din mailbox
     {:hello, name} -> "salut, #{name}"
@@ -829,6 +830,11 @@ class: iterative-header-slide
 ## typespec
 
 Declararea tipurilor in semnaturile functiilor si definirea tipurilor custom.
+    
+Definim un calculator ce intoarce pe langa rezultatul calculului si un comentariu.
+    
+???
+Similar cu `type`/`newtype` din Haskell
 
 --
 
@@ -932,6 +938,8 @@ class: iterative-header-slide
 > send pid, {:aniversare, "Ana", 16}   # Ana a implinit 16 ani
 > send pid, {:shutdown}                # Talker has exited, normal
 ```
+    
+Pattern matching pe structura si continutul mesajului trimis
 
 
 ---
@@ -960,6 +968,8 @@ end
 > send counter, {:next}               # Număr curent: 1
 > send counter, {:next}               # Număr curent: 2
 ```
+    
+Pastrare stare intre apeluri
 
 
 ---
@@ -1014,6 +1024,8 @@ end  # Counter
 > Counter.next  # 42
 > Counter.next  # 43
 ```
+    
+Pastrare stare intre apeluri
 
 
 ---
@@ -1065,6 +1077,8 @@ slow_double = fn(x) -> :timer.sleep(1000); x * 2 end
 ```
 > Parallel.map [1, 2, 3, 4], slow_double  # 1s
 ```
+    
+Patru procese ruleaza simultan.
 
 ---
 class: iterative-header-slide
@@ -1128,10 +1142,19 @@ slow_add = fn(a, b) -> :timer.sleep(1000); a + b end  # trebuie sa fie asociativ
 ```
 > Enum.reduce     [1, 2, 3, 4, 5, 6], slow_add  # 5s
 ```
+
+Secvential - 5 timpi operatii: `1+2`, `2+3`, `3+4`, `4+5`, `5+6`
+    
 --
 ```
 > Parallel.reduce [1, 2, 3, 4, 5, 6], slow_add  # 3s
 ```
+    
+Paralel - log(5) = 3 timpi operatii: 
+ - `1+2`, `4+5`
+ - `(1+2)+3`, `(4+5)+6`
+ - `[(1+2)+3] + `[(4+5)+6]`
+    
 
 
 ---
@@ -1543,6 +1566,18 @@ Pornim prin a cere o pagina de la `Parser`
 ---
 ## Counter
 
+La primirea unei pagini:
+1. cere o pagina noua (inainte de procesare pt minimizarea latentei)
+
+--
+2. numara cuvintele din pagina construind dictionarul `counts`
+
+--
+3. trimite dictionarul catre `Accumulator` impreuna cu `ref`-ul paginii
+
+
+--
+    
 ```
   # implementare
   def handle_cast({:deliver_page, ref, page}, state) do
@@ -1559,18 +1594,11 @@ Pornim prin a cere o pagina de la `Parser`
 end  # Counter
 ```
 
-La primirea unei pagini:
-1. cere o pagina noua (inainte de procesare pt minimizarea latentei)
-
---
-2. numara cuvintele din pagina construind dictionarul `counts`
-
---
-3. trimite dictionarul catre `Accumulator` impreuna cu `ref`-ul paginii
-
 ---
 ## Counter
 
+Un supervizor restarteaza `Counter` in caz de esec
+    
 ```
 defmodule CounterSupervisor do
   use Supervisor.Behaviour
@@ -1621,6 +1649,21 @@ defmodule Accumulator do
 
 ---
 ## Accumulator
+    
+
+La primirea unui dictionar de aparitii `counts`:
+1. verifica sa nu fi procesat deja pagina `ref`
+
+--
+2. aduna aparitiile din dictionar `count` la cele cunoscute `totals`
+
+--
+3. marcheaza pagina `ref` ca procesata
+
+--
+4. notifica parserul ca pagina `ref` a fost procesata
+    
+--
 
 ```
 def handle_cast({:deliver_counts, ref, counts}, {totals, processed_pages}) do
@@ -1639,17 +1682,6 @@ end
 ```
 --
 
-La primirea unui dictionar de aparitii `counts`:
-1. verifica sa nu fi procesat deja pagina `ref`
-
---
-2. aduna aparitiile din dictionar `count` la cele cunoscute `totals`
-
---
-3. marcheaza pagina `ref` ca procesata
-
---
-4. notifica parserul ca pagina `ref` a fost procesata
 
 
 ---
