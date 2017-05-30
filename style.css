@@ -59,8 +59,8 @@ img {  /* center horizontally */
 
 /* Margins and paddings */
 .remark-inline-code {
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 .remark-code {
   padding-left: 1em !important;
