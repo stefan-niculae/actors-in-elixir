@@ -90,7 +90,7 @@ class: iterative-header-slide
 
 --
 
-- Model computational *configuration-based* in loc de *state-machine*. Un mesaj *se duce*, nu ajunge instant dintr-o stare in alta.
+- Opus unui model *state-machine*, intr-o configuratie, un mesaj *se duce*, nu ajunge instant la destinatar.
 
   Mai fidel unui model fizic decat unuia algebric.
 
