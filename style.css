@@ -56,6 +56,9 @@ img {  /* center horizontally */
   bottom: 3em;
 }
 
+.graph-benchmark img {
+  max-height: 200%
+}
 
 /* Margins and paddings */
 .remark-inline-code {

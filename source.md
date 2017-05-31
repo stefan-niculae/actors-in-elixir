@@ -113,7 +113,7 @@ Nu este garantata pastrarea ordinii trimiterii mesajelor la primire.
 
 --
 
-Sincronizarea este condusa de faptul ca mesajele sunt procesate cate unul.
+Sincronicitatea este data de faptul ca mesajele sunt procesate cate unul.
 
 ---
 class: iterative-header-slide
@@ -1971,6 +1971,16 @@ Altereaza atat ponderile cat si structura retelei, incercand sa gaseasca un echi
 ---
 class: iterative-header-slide
 
+## exemplu implementare
+
+.footnote[sursa: [implementare de Stuart Hunt](https://gitlab.com/onnoowl/Neat-Ex)]
+
+https://gitlab.com/onnoowl/Neat-Ex/blob/master/lib/backprop/backprop.ex
+
+
+---
+class: iterative-header-slide
+
 ## exemplu aplicatie
 
 Simulator banc de pesti. Evolueaza reteaua sa se comporte precum un grup de pesti, fugind de un rechin.
@@ -1978,21 +1988,14 @@ Fitness-ul este bazat pe cat de mult pot pestii sa ii supravietuiasca rechinului
 
 ![fish](img/fish.svg)
 
----
-class: iterative-header-slide
-
-## implementare backprop
-
-.footnote[sursa: [implementare de Stuart Hunt](https://gitlab.com/onnoowl/Neat-Ex)]
-
-TODO: https://gitlab.com/onnoowl/Neat-Ex/blob/master/lib/backprop/backprop.ex
 
 ---
 class: iterative-header-slide
 
 ## benchmark scalare
 
-TODO: 1, 2, 4, 8, 16, 32, 64, 128 threads
+
+.graph-benchmark[![benchmark](img/benchmark.svg)]
 
 ---
 template: inverse
