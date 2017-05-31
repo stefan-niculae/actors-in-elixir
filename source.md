@@ -1307,7 +1307,7 @@ class: iterative-header-slide
 
 ## supervizare
 
-`Cache` rescris:
+Adaugam la `Cache` comanda de terminare normala:
 
 
 ```elixir
@@ -1983,7 +1983,8 @@ class: iterative-header-slide
 
 ## exemplu aplicatie
 
-Simulator banc de pesti. Evolueaza reteaua sa se comporte precum un grup de pesti, fugind de un rechin.
+Evolueaza reteaua sa poata invata comportamentul unui banc de pesti fugind de un rechin.
+
 Fitness-ul este bazat pe cat de mult pot pestii sa ii supravietuiasca rechinului.
 
 ![fish](img/fish.svg)
