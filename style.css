@@ -78,6 +78,9 @@ blockquote {
   border-radius: 2px;
   padding-bottom: 2px;
 }
+.remark-code {
+  border-radius: 4px;
+}
 
 
 /* Colors */
@@ -102,7 +105,6 @@ body {
 }
 .remark-code {
   background: var(--code-bg);.
-  border-radius: 3px;
 }
 .remark-code-line-highlighted {
   background-color: var(--highlight-color);

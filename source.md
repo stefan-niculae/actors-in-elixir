@@ -903,7 +903,7 @@ class: iterative-header-slide
 
 ## mesaje si mailbox
 
-Mesajele trimise asincron. În loc să fie trimise direct unui actor, sunt aşezate într-un *mailbox*.
+Mesajele sunt trimise asincron. Fiecare actor are un *mailbox* in care se aduna de mesajele primite, de procesat.
 
 Actorii rulează în acelaşi timp, dar sunt prelucraţi secvenţial.
 
@@ -1116,14 +1116,14 @@ class: iterative-header-slide
 
 ```
   else
-    parent = self()  # cui vor trimite workerii inapoi
+    parent = self  # cui vor trimite workerii inapoi
     {left_half, right_half} = Enum.split collection, round(len/2)
 
     # asigneaza treaba worker-ilor pt jumatatea stanga si dreapta
     processes = Enum.map [left_half, right_half], fn(half) ->
       spawn_link fn ->
         result = Parallel.reduce half, fun  # aplica recursie
-        send parent, {self(), result}
+        send parent, {self, result}
       end
     end
 ```
