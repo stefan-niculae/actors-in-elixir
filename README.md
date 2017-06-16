@@ -1,7 +1,7 @@
 # actors-in-elixir
 Presentation of Actors model, their implementation in Elixir and a case study
 
-Online: https://stefan1niculae.github.io/actors-in-elixir
+Online: http://stefann.eu/actors-in-elixir
 
 1.   Actori
   - model programare
