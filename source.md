@@ -257,7 +257,7 @@ class: iterative-header-slide
 
 ```elixir
 # pe string-uri
-> "abc {:def}"  # interpolare
+> "abc #{:def}"  # interpolare
 "abc def"
 > "he" <> "llo"
 "hello"
