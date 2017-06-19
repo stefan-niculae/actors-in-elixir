@@ -292,7 +292,7 @@ Incep cu litera mica, pot contine litere mici/mari se pot termina in `?` sau `!`
 
 --
 
-Conventii: nume in `snake_case`; underscore `_` pt variable nefolosite.
+(conventii) nume in `snake_case`; underscore `_` pt variable nefolosite.
 
 ???
 _ ca in Haskell/altele
