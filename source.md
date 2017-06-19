@@ -480,6 +480,8 @@ class: iterative-header-slide
 ```
 Functiile din modulul `Enum` sunt eager. Modulul `Stream` are echivalentele lor in varianta lazy.
 
+Apelarea unei functii dintr-un modul se face prin capturare: `Enum.map(list, &Funcs.double/1)`.
+
 --
 
 ```elixir
